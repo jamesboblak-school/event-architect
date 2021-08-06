@@ -1,6 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-const Event = require('./Event');
 
 class Message extends Model {};
 
@@ -9,6 +8,7 @@ Message.init(
 		id: {
 			type: DataTypes.INTEGER,
 			autoIncrement: true,
+			primaryKey: true
 		},
 
 		content: {
@@ -19,7 +19,7 @@ Message.init(
 		event_id: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: Event,
+				model: 'event',
 				key: 'id'
 			}
 		}

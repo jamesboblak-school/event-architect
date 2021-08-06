@@ -1,6 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-const Event = require('./Event');
 
 class Detail extends Model {};
 
@@ -10,6 +9,7 @@ Detail.init(
 			type: DataTypes.INTEGER,
 			autoIncrement: true,
 			allowNull: false,
+			primaryKey: true
 		},
 
 		time: {
@@ -26,7 +26,7 @@ Detail.init(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			references: {
-				model: Event,
+				model: 'event',
 				key: 'id'
 			}
 		}

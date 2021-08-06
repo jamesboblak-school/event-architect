@@ -1,7 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-const Member = require('./Member');
-const MemberEvent = require('./MemberEvent');
 
 class MemberMember extends Model {};
 
@@ -10,21 +8,22 @@ MemberMember.init(
 		id: {
 			type: DataTypes.INTEGER,
 			autoIncrement: true,
-			allowNull: false
+			allowNull: false,
+			primaryKey: true
 		},
 
 		member_id: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: Member,
+				model: 'member',
 				key: 'id'
 			}
 		},
 
-		follower_id: {
+		following_id: {
 			type: DataTypes.INTEGER,
 			references: {
-				model: Member,
+				model: 'member',
 				key: 'id'
 			}
 		}
@@ -38,4 +37,4 @@ MemberMember.init(
 	}
 );
 
-module.exports = MemberEvent;
+module.exports = MemberMember;

@@ -17,23 +17,32 @@ Event.belongsTo(Member, {
 Member.belongsToMany(Event, {
 	through: {
 		model: MemberEvent,
+		unique: false
 	},
-	as: 'memberEvent',
 });
 
 Event.belongsToMany(Member, {
 	through: {
 		model: MemberEvent,
+		unique: false
 	},
-	as: 'memberEvent'
 });
 
 Member.belongsToMany(Member, {
 	through: {
 		model: MemberMember,
+		unique: false
 	},
-	as: 'memberMember'
+	as: 'follower'
 });
+
+Member.belongsToMany(Member, {
+	through: {
+		model: MemberMember,
+		unique: false
+	},
+	as: 'followed'
+})
 
 Event.hasMany(Detail, {
 	foreignKey: 'event_id',
@@ -51,6 +60,8 @@ Event.hasMany(Message, {
 
 Message.belongsTo(Event, {
 	foreignKey: 'event_id'
-})
+});
+
+module.exports = {Event, Detail, Member, MemberEvent, MemberMember, Message};
 
 

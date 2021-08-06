@@ -85,31 +85,31 @@ router.put('/', async (req, res) => {
 // The `/events` endpoint
 router.delete('/:id', async (req, res) => {
     console.log("Delete a Public Event");
-    res.json({
-        message: "Delete a Public Event"
-    });
-    // try {
-    //     const eventData = await Event.destroy({
-    //         where: {
-        //             id: req.params.id,
-        //             // private: false,     !!!!!!!!!!
-    //         },
-    //     });
-    //     if (!eventData) {
-    //         res.status(404).json({
-        //             message: 'No Event with that ID found!'
-    //         });
-    //         return;
-    //     }
-    //     const eventPlain = eventData.map((event) => event.get({
-    //         plain: true
-    //     }));
-    //     res.status(200).render('main', {
-    //         data: eventPlain
-    //     });
-    // } catch (err) {
-    //     res.status(500).json(err);
-    // }
+    // res.json({
+    //     message: "Delete a Public Event"
+    // });
+    try {
+        const eventData = await Event.destroy({
+            where: {
+                    id: req.params.id,
+            },
+        });
+        if (!eventData) {
+            res.status(404).json({
+                    message: 'No Event with that ID found!'
+            });
+            return;
+        }
+        // const eventPlain = eventData.get({
+        //     plain: true
+        // });
+        res.status(200).render('homePage', {
+            data: eventData
+        });
+    } catch (err) {
+        console.log("error: " + err);
+        res.status(500).json(err);
+    }
 });
 
 // 12. Delete my Private Event by its `id` value

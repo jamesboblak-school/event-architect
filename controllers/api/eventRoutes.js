@@ -1,16 +1,7 @@
 // associate the models in variables
 const router = require('express').Router();
-
-// const {
-//     Member,
-//     Message,
-//     Detail,
-//     Event,
-//     //   CHECK '_' in Member_event !!!!!!! CHECK
-//     Member_event,
-//     //   CHECK '_' in Member_member !!!!!!! CHECK
-//     Member_member
-// } = require('../models');
+const {Event} = require('../../models');
+// const {Event, Detail, Member, MemberEvent, MemberMember, Message} = require('../../models');
 
 // ============PRIVATE API ROUTES============
 
@@ -18,34 +9,30 @@ const router = require('express').Router();
 // The `/events` endpoint
 router.post('/', async (req, res) => {
     console.log("Create event");
-    res.json({
-        message: "Create event"
-    });
-    // try {
-    //     const eventData = await Event.create({
-    //         event_title: req.body.event_title
-    //     });
-    //     const eventPlain = eventData.map((event) => event.get({
-    //         plain: true
-    //     }));
-    //     res.status(200).render('main', {
-    //         data: eventPlain
-    //     });
-    // } catch (err) {
-    //     res.status(400).json(err);
-    // }
+    // res.json({
+    //     message: "Create event"
+    // });
+    try {
+        const eventData = await Event.create(req.body);
+        // const eventPlain = await eventData.get({plain: true});
+        res.status(200).json(eventData);
+
+    } catch (err) {
+        console.log("error: " + err);
+        res.status(400).json(err);
+    }
 });
 
 // ============MEMBER ROUTES============
 
-// 5. Create a Public Event POST
-// The `/events` endpoint
+    // 5. Create a Public Event POST
+    // The `/events` endpoint
 
-router.post('/:id', (req, res) => {
-    console.log("Create Public Event");
-    res.json({
-        message: "Create Public Event"
-    });
+    // router.post('/', (req, res) => {
+    //     console.log("Create Public Event");
+    //     res.json({
+    //         message: "Create Public Event"
+    //     });
     // try {
     //     const eventData = await Event.create({
     //         event_title: req.body.event_title
@@ -59,28 +46,25 @@ router.post('/:id', (req, res) => {
     // } catch (err) {
         //     res.status(400).json(err);
     // }
-});
+    // });
 
-// 6. Create a Private Event POST
-router.post('/', async (req, res) => {
-    console.log("Create a Private Event");
-    res.json({
-        message: "Create a Private Event"
-    });
-});
-
-
-
-
-
-
+    // 6. Create a Private Event POST
+    // router.post('/', async (req, res) => {
+    //     console.log("Create a Private Event");
+    //     res.json({
+    //         message: "Create a Private Event"
+    //     });
+    // });
 
 // 8. Join a Private Event PUT
 router.put('/', async (req, res) => {
     console.log("Join a Private Event");
-    res.json({
-        message: "Join a Private Event"
-    });
+    // res.json({
+    //     message: "Join a Private Event"
+    // });
+    // try {
+    //     const 
+    // }
 });
 
 // 9. Update my Public Event PUT

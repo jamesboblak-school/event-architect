@@ -4,7 +4,7 @@ const events = [
 	{
 		title: 'Rave',
 		description: 'This is a cool rave',
-		isPrivate: false,
+		isPrivate: true,
 		author_id: 1
 	}
 ];

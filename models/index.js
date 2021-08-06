@@ -7,11 +7,13 @@ const Message = require('./Message');
 
 Member.hasMany(Event, {
 	foreignKey: 'author_id',
+	as: 'author',
 	onDelete: 'CASCADE',
 });
 
 Event.belongsTo(Member, {
-	foreignKey: 'author_id'
+	foreignKey: 'author_id',
+	as: 'author'
 });
 
 Member.belongsToMany(Event, {
@@ -19,6 +21,7 @@ Member.belongsToMany(Event, {
 		model: MemberEvent,
 		unique: false
 	},
+	as: 'memberevent'
 });
 
 Event.belongsToMany(Member, {
@@ -26,6 +29,7 @@ Event.belongsToMany(Member, {
 		model: MemberEvent,
 		unique: false
 	},
+	as: 'memberevent'
 });
 
 Member.belongsToMany(Member, {

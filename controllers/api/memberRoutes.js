@@ -1,5 +1,6 @@
 // associate the models in variables
 const router = require('express').Router();
+const {Event, Detail, Member, MemberEvent, MemberMember, Message} = require('../../models');
 // const {
 //     Member,
 //     Message,
@@ -14,12 +15,22 @@ const router = require('express').Router();
 
 //   ============USER ROUTES============
 // 2. Become a Member POST
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     console.log("Become a Member");
-    res.json({
-        message: "Become a Member"
+    // res.json({
+    //     message: "Become a Member"
+    // });
+    try {
+        const memberData = await Member.create(req.body);
+        // const eventPlain = await eventData.get({plain: true});
+        res.status(200).json(memberData);
+
+    } catch (err) {
+        console.log("error: " + err);
+        res.status(400).json(err);
+    }
     });
-});
+
 
 
 // ============MEMBER DASHBOARD ROUTES============

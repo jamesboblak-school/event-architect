@@ -16,7 +16,9 @@ const router = require('express').Router();
 // The `/events` endpoint
 router.get('/', (req, res) => {
     console.log("Find all Private Events");
-    res.json({message: "Find all Private Events"});
+    res.json({
+        message: "Find all Private Events"
+    });
     // try {
     //     const eventsData = await Event.findAll({
     //         include: [{
@@ -41,13 +43,17 @@ router.get('/', (req, res) => {
 // 1. View Public Events GET
 router.get('/events', async (req, res) => {
     console.log("View Public Events");
-    res.json({message: "View Public Events"});
+    res.json({
+        message: "View Public Events"
+    });
 });
 
 // 3. Log in to my profile GET
 router.get('/users', async (req, res) => {
     console.log("Log into my Profile");
-    res.json({message: "Log into my Profile"});
+    res.json({
+        message: "Log into my Profile"
+    });
 });
 
 //   ============MEMBER ROUTES============
@@ -56,7 +62,9 @@ router.get('/users', async (req, res) => {
 // The `/users` endpoint
 router.get('/user/:id', async (req, res) => {
     console.log("Find One Member");
-    res.json({message: "Find One Member"});
+    res.json({
+        message: "Find One Member"
+    });
     // try {
     //     const userData = await User.findByPk(req.params.id, {
     //         include: [{
@@ -83,19 +91,25 @@ router.get('/user/:id', async (req, res) => {
 // 2. View Profile GET
 router.get('/user/:id', (req, res) => {
     console.log("View Profile");
-    res.json({message: "view Profile"});
+    res.json({
+        message: "view Profile"
+    });
 });
 
 // 3. View Public Event GET
 router.get('/event/:id', (req, res) => {
     console.log("View Public Event");
-    res.json({message: "View Public Event"});
+    res.json({
+        message: "View Public Event"
+    });
 });
 
 // 4. View Private Event GET
 router.get('/event/:id', (req, res) => {
     console.log("View Private Event");
-    res.json({message: "View Private Event"});
+    res.json({
+        message: "View Private Event"
+    });
 });
 
 module.exports = router;

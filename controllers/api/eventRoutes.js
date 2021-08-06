@@ -13,39 +13,6 @@ const router = require('express').Router();
 // } = require('../models');
 
 // ============PRIVATE API ROUTES============
-// 2. Update info by event `id` value
-// The `/events` endpoint
-router.put('/:id', async (req, res) => {
-    console.log("Update Event by :id");
-    res.json({
-        message: "Update Event by :id"
-    });
-    // try {
-    //     const eventData = await Event.update({
-    //         event_title: req.body.event_title,
-    //     }, {
-    //         where: {
-    //             id: req.params.id
-    //         }
-    //     });
-
-    //     const eventPlain = eventData.map((event) => event.get({
-    //         plain: true
-    //     }));
-
-    //     if (!eventData) {
-    //         res.status(404).json({
-    //             message: 'No Event with that ID found!'
-    //         });
-    //         return;
-    //     }
-    //     res.status(200).render('main', {
-    //         data: eventPlain
-    //     });
-    // } catch (err) {
-    //     res.status(500).json(err);
-    // }
-});
 
 // 3. To create events
 // The `/events` endpoint
@@ -74,7 +41,7 @@ router.post('/', async (req, res) => {
 // 5. Create a Public Event POST
 // The `/events` endpoint
 
-router.post('/event/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     console.log("Create Public Event");
     res.json({
         message: "Create Public Event"
@@ -90,7 +57,7 @@ router.post('/event/:id', (req, res) => {
     //         data: eventPlain
     //     });
     // } catch (err) {
-    //     res.status(400).json(err);
+        //     res.status(400).json(err);
     // }
 });
 
@@ -101,13 +68,13 @@ router.post('/', async (req, res) => {
         message: "Create a Private Event"
     });
 });
-// 7. Join a Public Event PUT
-router.put('/', async (req, res) => {
-    console.log("Join a Public Event");
-    res.json({
-        message: "Join a Public Event"
-    });
-});
+
+
+
+
+
+
+
 // 8. Join a Private Event PUT
 router.put('/', async (req, res) => {
     console.log("Join a Private Event");
@@ -140,13 +107,13 @@ router.delete('/:id', async (req, res) => {
     // try {
     //     const eventData = await Event.destroy({
     //         where: {
-    //             id: req.params.id,
-    //             // private: false,     !!!!!!!!!!
+        //             id: req.params.id,
+        //             // private: false,     !!!!!!!!!!
     //         },
     //     });
     //     if (!eventData) {
     //         res.status(404).json({
-    //             message: 'No Event with that ID found!'
+        //             message: 'No Event with that ID found!'
     //         });
     //         return;
     //     }
@@ -169,7 +136,7 @@ router.delete('/:id', async (req, res) => {
         message: "Delete a Private Event"
     });
     // try {
-    //     const eventData = await Event.destroy({
+        //     const eventData = await Event.destroy({
     //         where: {
     //             id: req.params.id,
     //             //   private: true,     !!!!!!!!!!! CHECK
@@ -194,7 +161,7 @@ router.delete('/:id', async (req, res) => {
 
 // ============MEMBER DASHBOARD ROUTES============
 // 4. Create Public Event POST
-router.post('/event/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     console.log("Create Public Event");
     res.json({
         message: "Create Public Event"
@@ -202,7 +169,7 @@ router.post('/event/:id', (req, res) => {
 });
 
 // 5. Create Private Event POST
-router.post('/event/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     console.log("Create Private Event");
     res.json({
         message: "Create Private Event"
@@ -210,15 +177,16 @@ router.post('/event/:id', (req, res) => {
 });
 
 // 6. Update my Public Event PUT
-router.put('/event/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     console.log("Update my Public Event");
     res.json({
         message: "Update my Public Event"
     });
 });
 
+
 // 7. Update my Private Event PUT
-router.put('/event/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     console.log("Update my Private Event");
     res.json({
         message: "Update my Private Event"
@@ -227,9 +195,9 @@ router.put('/event/:id', (req, res) => {
 // 8. Delete a Private Event DELETE
 // The `/events` endpoint
 router.delete('/:id', async (req, res) => {
-    console.log("Delete a Private Event");
+    console.log("Delete a Private Event by ID");
     res.json({
-        message: "Delete a Private Event"
+        message: "Delete a Private Event by ID"
     });
     // try {
     //     const eventData = await Event.destroy({
@@ -292,5 +260,41 @@ router.put('/:id', async (req, res) => {
     res.json({
         message: "Add a Contact to an Event"
     });
+});
+
+// 2. Update info by event `id` value
+// The `/events` endpoint
+
+router.put('/:id', async (req, res) => {
+    console.log("Update Event by :id");
+    console.log(req.params.id);
+    res.json({
+        message: "Update Event by :id"
+    });
+    // try {
+    //     const eventData = await Event.update({
+    //         event_title: req.body.event_title,
+    //     }, {
+    //         where: {
+    //             id: req.params.id
+    //         }
+    //     });
+
+    //     const eventPlain = eventData.map((event) => event.get({
+    //         plain: true
+    //     }));
+
+    //     if (!eventData) {
+    //         res.status(404).json({
+    //             message: 'No Event with that ID found!'
+    //         });
+    //         return;
+    //     }
+    //     res.status(200).render('main', {
+    //         data: eventPlain
+    //     });
+    // } catch (err) {
+    //     res.status(500).json(err);
+    // }
 });
 module.exports = router;

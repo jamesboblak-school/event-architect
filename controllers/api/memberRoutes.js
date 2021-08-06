@@ -38,3 +38,5 @@ router.delete('/', (req, res) => {
         message: "Delete my profile"
     });
 });
+
+module.exports = router;

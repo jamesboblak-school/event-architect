@@ -44,12 +44,12 @@ router.get('/events', async (req, res) => {
 });
 
 // 3. Log in to my profile GET
-router.get('/users', async (req, res) => {
-    console.log("Log into my Profile");
-    res.json({
-        message: "Log into my Profile"
-    });
-});
+    // router.get('/users', async (req, res) => {
+    //     console.log("Log into my Profile");
+    //     res.json({
+    //         message: "Log into my Profile"
+    //     });
+    // });
 
 //   ============MEMBER ROUTES============
 

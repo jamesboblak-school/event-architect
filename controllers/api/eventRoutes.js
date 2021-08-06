@@ -71,14 +71,17 @@ router.put('/', async (req, res) => {
 
 // 9. Update my Public Event PUT
 router.put('/:id', async (req, res) => {
+    // get the user ID
 console.log("Update a Public Event");
-res.json({
-    message: "Update a Public Event"
+// res.json({
+//     message: "Update a Public Event"
 });
 
-
 try {
-    const eventData = await Event.update(req.body);
+    
+    const eventData = await Event.update({ 
+        ...req.body,
+    });
         // const eventPlain = await eventData.get({plain: true});
         res.status(200).json(eventData);
 
@@ -88,11 +91,10 @@ try {
         });
         return;
     }
-    res.status(200).render(`dashboard/${userId}`); //CHECK !!!!!!!!!!!!
+    res.status(200).render(`dashboard/${req.session.userId}`); //CHECK !!!!!!!!!!!!
 } catch (err) {
     res.status(500).json(err);
-}
-});
+};
 
 
 

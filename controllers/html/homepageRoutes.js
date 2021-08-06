@@ -94,10 +94,30 @@ router.get('/user/:id', (req, res) => {
 // 3. View Public Event GET
 router.get('/event/:id', (req, res) => {
     console.log("View Public Event");
-    res.json({
-        message: "View Public Event"
+    // res.json({
+    //     message: "View Public Event"
+        try {
+        const eventData = await Event.findByPk(req.params.id, {
+            include: [{
+                model: Event
+            }],
+        });
+        if (!eventData) {
+            res.status(404).json({
+                message: 'No Member with that ID found!'
+            });
+            return;
+        }
+        const eventPlain = eventData.map((event) => event.get({
+            plain: true
+        }));
+        res.status(200).render('main', {
+            data: eventPlain
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
     });
-});
 
 // 4. View Private Event GET
 router.get('/event/:id', (req, res) => {

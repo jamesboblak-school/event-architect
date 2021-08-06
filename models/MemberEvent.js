@@ -1,19 +1,24 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
+const Member = require('./Member');
 const Event = require('./Event');
 
-class Message extends Model {};
+class MemberEvent extends Model {};
 
-Message.init(
+MemberEvent.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
 			autoIncrement: true,
+			allowNull: false
 		},
 
-		content: {
-			type: DataTypes.STRING,
-			allowNull: false
+		member_id: {
+			type: DataTypes.INTEGER,
+			references: {
+				model: Member,
+				key: 'id'
+			}
 		},
 
 		event_id: {
@@ -26,11 +31,10 @@ Message.init(
 	},
 	{
 		sequelize,
-		timestamps: true,
-		modelName: 'message',
+		modelName: 'memberEvent',
 		freezeTableName: true,
 		underscored: true
 	}
 );
 
-module.exports = Message;
+module.exports = MemberEvent;

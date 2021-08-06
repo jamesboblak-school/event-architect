@@ -1,25 +1,39 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-const Event = require('./Event');
+const Member = require('./Member');
 
-class Message extends Model {};
+class Event extends Model {};
 
-Message.init(
+
+Event.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
 			autoIncrement: true,
+			allowNull: false,
+			primaryKey: true
 		},
 
-		content: {
+		title: {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
 
-		event_id: {
+		description: {
+			type: DataTypes.TEXT,
+			allowNull: false
+		},
+
+		isPrivate: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false
+		},
+		
+		author_id: {
 			type: DataTypes.INTEGER,
+			allowNull: false,
 			references: {
-				model: Event,
+				model: Member,
 				key: 'id'
 			}
 		}
@@ -27,10 +41,10 @@ Message.init(
 	{
 		sequelize,
 		timestamps: true,
-		modelName: 'message',
+		modelName: 'event',
 		freezeTableName: true,
 		underscored: true
 	}
 );
 
-module.exports = Message;
+module.exports = Event;

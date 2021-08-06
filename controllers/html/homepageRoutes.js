@@ -84,12 +84,29 @@ router.get('/user/:id', async (req, res) => {
 });
 
 // 2. View Profile GET
-router.get('/user/:id', (req, res) => {
-    console.log("View Profile");
-    res.json({
-        message: "view Profile"
-    });
-});
+// router.get('/member/:id', async (req, res) => {
+//     console.log("View Profile");
+
+// 		if (!req.params.id) {
+// 			res.status(400).json({message: 'Need member id'});
+// 		}
+// 		try {
+// 			const member = await Member.findOne({
+// 				where: req.params.id
+// 			})
+
+// 			if (!member) {
+// 				res.status(404).json({message: 'Member not found'});
+// 			}
+
+// 			res.render('')
+
+// 		}
+
+//     res.json({
+//         message: "view Profile"
+//     });
+// });
 
 // 3. View Public Event GET
 router.get('/event/:id', async (req, res) => {

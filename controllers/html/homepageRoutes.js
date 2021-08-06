@@ -1,5 +1,7 @@
 // associate the models in variables
 const router = require('express').Router();
+const {Event, Detail, Member, MemberEvent, MemberMember, Message} = require('../../models');
+
 // const {
 //     Member,
 //     Message,
@@ -14,30 +16,23 @@ const router = require('express').Router();
 // ============PRIVATE API ROUTES============
 // 1. find all private events
 // The `/events` endpoint
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     console.log("Find all Private Events");
-    res.json({
-        message: "Find all Private Events"
-    });
-    // try {
-    //     const eventsData = await Event.findAll({
-    //         include: [{
-    //             model: Event,
-    //             // private: true !!!!!!!!! CHECK
-    //         }]
-    //     });
+    try {
+        const eventsData = await Event.findAll();
 
-    //     const eventsPlain = eventsData.map((event) => event.get({
-    //         plain: true
-    //     }));
+        const eventsPlain = eventsData.map((event) => event.get({
+            plain: true
+        }));
 
-    //     //   handlebars to main.hbs
-    //     res.status(200).render('main', {
-    //         data: eventsPlain
-    //     });
-    // } catch (err) {
-    //     res.status(500).json(err);
-    // }
+        //   handlebars to main.hbs
+     res.status(200).render('homePage', {
+            events: eventsPlain//, loggedIn: req.session.loggedIn
+        });
+    } catch (err) {
+        console.log("error:" + err)
+        res.status(500).json(err);
+    }
 });
 //   ============USER ROUTES============
 // 1. View Public Events GET

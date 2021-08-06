@@ -35,7 +35,7 @@ app.use(expsess(sess));
 
 sequelize.sync({force: false}).then(() => {
 	app.listen(PORT, () => {
-		console.log('listening');
+		console.log(`Now listening at http://localhost:${PORT} 🚀`);
 	})
 });
 

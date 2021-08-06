@@ -1,0 +1,26 @@
+<div class="top">
+    <section class="profile">
+        <h3 class="username">{{dashboardData.username}}</h3>
+        <div class="profile-picture"><img src="" alt="" class="portrait"></div>
+        <div>
+            <button class="followers-button">Followers</button>
+            <button class="following-button">Following</button>
+        </div>
+    </section>
+
+    <section class="my-events">
+        <h3 class="title">My Events</h3>
+        {{#each dashboardData as |dbd|}}
+        <p class="event">{{dbd.event}}</p>
+        {{/each}}
+    </section>
+</div>
+
+<div class="bottom">
+    <section class="managed-events">
+        <h3 class="title">Managed Events</h3>
+        {{#each dashboardData as |dbd|}}
+        <p class="event"></p>
+        {{/each}}
+    </section>
+</div>

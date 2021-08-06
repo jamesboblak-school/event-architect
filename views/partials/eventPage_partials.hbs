@@ -1,0 +1,17 @@
+<section class="event-details">
+    <h3 class="title">{{event.title}}</h3>
+    {{#each}}
+    <p class="event">{{event.detail}}</p>
+    {{/each}}
+</section>
+
+<section class="msg-card">
+    <article class="msg-room">
+        {{#each event.msg}}
+        <p class="sent-msg"></p>
+        {{/each}}
+    </article>
+    <input class="msg" type="text" placeholder="Send a message">
+        <button class="send-btn">Send</button>
+    </input>
+</section>

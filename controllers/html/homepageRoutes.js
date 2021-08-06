@@ -92,29 +92,25 @@ router.get('/user/:id', (req, res) => {
 });
 
 // 3. View Public Event GET
-router.get('/event/:id', (req, res) => {
+router.get('/event/:id', async (req, res) => {
     console.log("View Public Event");
     // res.json({
     //     message: "View Public Event"
+    // });
         try {
-        const eventData = await Event.findByPk(req.params.id, {
-            include: [{
-                model: Event
-            }],
-        });
+        const eventData = await Event.findByPk(req.params.id);
         if (!eventData) {
             res.status(404).json({
-                message: 'No Member with that ID found!'
+                message: 'No Event with that ID found!'
             });
             return;
         }
-        const eventPlain = eventData.map((event) => event.get({
-            plain: true
-        }));
-        res.status(200).render('main', {
+        const eventPlain = await eventData.get({plain: true});
+        res.status(200).render('homePage', {
             data: eventPlain
         });
     } catch (err) {
+        console.log("error: " + err);
         res.status(500).json(err);
     }
     });

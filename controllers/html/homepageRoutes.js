@@ -123,7 +123,7 @@ router.get('/event/:id', async (req, res) => {
             return;
         }
         const eventPlain = await eventData.get({plain: true});
-        res.status(200).render('homePage', {
+        res.status(200).render('eventPage', {
             data: eventPlain
         });
     } catch (err) {

@@ -1,10 +1,13 @@
-<section>
+<section class="event-card">
     <h1 class="card-title">Events</h1>
     <article class="card-content">
 {{#each events}}
-<a class="event">{{title}}</a>
+<a href="event/{{id}}" class="event"><h3>{{id}}. {{title}}</h3></a>
 {{/each}}
 
     </article>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
 
 </section>

@@ -1,6 +1,5 @@
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
-const Member = require('./Member');
 
 class Event extends Model {};
 
@@ -33,7 +32,7 @@ Event.init(
 			type: DataTypes.INTEGER,
 			allowNull: false,
 			references: {
-				model: Member,
+				model: 'member',
 				key: 'id'
 			}
 		}

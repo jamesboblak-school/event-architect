@@ -66,7 +66,14 @@ router.get('/:id', async (req, res) => {
 			const attendingEventsPlain = attendingEvents.map((event) => plainData(event));
 			
 			console.log(memberPlain, createdEventsPlain, attendingEventsPlain)
-			res.render('dashboard', {memberPlain, createdEventsPlain, attendingEventsPlain});
+			res.render('dashboard', {
+				memberPlain, 
+				createdEventsPlain, 
+				attendingEventsPlain,
+			  loggedIn: req.session.loggedIn,
+			  id: req.session.userId
+			});
+
 		} catch(err) {
 			console.log(err)
 			res.status(500).json({message: 'Server error'});

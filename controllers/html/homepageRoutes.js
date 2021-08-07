@@ -16,9 +16,12 @@ router.get('/', async (req, res) => {
             plain: true
         }));
 
+				console.log(req.session)
         //   handlebars to main.hbs
-     res.status(200).render('homePage', {
-            events: eventsPlain//, loggedIn: req.session.loggedIn
+     		res.status(200).render('homePage', {
+            events: eventsPlain, 
+						loggedIn: req.session.loggedIn,
+						id: req.session.userId
         });
     } catch (err) {
         console.log("error:" + err)

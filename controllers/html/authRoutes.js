@@ -36,7 +36,10 @@ router.post('/', async (req, res) => {
 	 		req.session.userId = member.id;
 	 
 			console.log(req.session)
-		 	res.status(200).json({message: `Logged in ${req.session.username}`})
+		 	res.status(200).json({
+				 username: req.session.username,
+				 userId: req.session.userId
+			 })
 		});
 
 

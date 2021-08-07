@@ -4,7 +4,9 @@ const bcrypt = require('bcrypt');
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
-	res.render('auth');
+	res.render('auth', {
+		loggedIn: req.session.loggedIn
+	});
 });
 
 router.post('/', async (req, res) => {

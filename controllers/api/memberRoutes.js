@@ -14,11 +14,15 @@ const router = require('express').Router();
 
 //   ============USER ROUTES============
 // 2. Become a Member POST
-router.post('/', (req, res) => {
-    console.log("Become a Member");
-    res.json({
-        message: "Become a Member"
+router.post('/', async (req, res) => {
+
+    const memberData = await Member.findAll().catch((err) => {
+        res.json(err);
     });
+
+    const members = memberData.map((member) => member.get ({ plain: true }));
+        res.render('dashboard', {members });
+    
 });
 
 

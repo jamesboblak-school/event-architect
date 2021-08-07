@@ -1,4 +1,4 @@
-<div class="top">
+<div class="main-container mc--dashboard">
     <section class="profile">
         <h3 class="username">{{memberPlain.username}}</h3>
         <div class="profile-picture"><img src="/images/userImg.png" alt="" class="portrait"></div>
@@ -8,7 +8,7 @@
         </div>
     </section>
 
-    <section class="my-events">
+    <section class="sub-container">
         <h3 class="title">My Events</h3>
         {{#each attendingEventsPlain as |event|}}
         <p class="event">{{event.title}}</p>
@@ -16,14 +16,32 @@
     </section>
 </div>
 
-<div class="bottom">
-    <section class="managed-events">
+<div class="main-container mc--dashboard">
+    <section class="sub-container">
         <h3 class="title">Managed Events</h3>
         {{#each createdEventsPlain as |event|}}
         <div id="oneline">
-        <p class="event">{{event.title}}</p>
-        <button class="edit-btn">Edit</button>
+        <div class="event"><p>{{event.title}}</p>
+        <button class="edit-btn">Edit</button></div>
         </div>
         {{/each}}
     </section>
 </div>
+
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+
+<div class="modal">
+
+    <div class="modal-content">
+            <!-- <span class="close">&times;</span> -->
+<div id="oneline--close-modal">
+        <h2 id="modal-title" class="title">text here</h2>
+<button class="close">x</button>
+</div>
+        <ul id="friendList">
+        </ul>
+    </div>
+</div>
+<script src="/js/contacts.js"></script>

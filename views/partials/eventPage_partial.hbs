@@ -1,18 +1,28 @@
-<main><section class="event-details">
-    <h3 class="title">{{event.title}}</h3>
-    {{#each}}
-    <p class="event">{{event.detail}}</p>
-    {{/each}}
+<section class="main-container">
+    <div id="oneline">
+    <h3 class="title">event title{{title}}</h3>
+    <button class="edit-btn">Edit</button>
+    </div>
+    <p class="event">event description{{description}}</p>
+   
 </section>
 
-<section class="msg-card">
-    <article class="msg-room">
-        {{#each event.msg}}
-        <p class="sent-msg"></p>
-        {{/each}}
+<section class="main-container">
+    <article class="sub-container">
+        <p class="sent-msg">message here{{msg}}</p>
     </article>
     <input class="msg" type="text" placeholder="Send a message">
-        <button class="send-btn">Send</button>
+        <button class="submit-btn">Send</button>
     </input>
+</section>
+
+<section class="main-container">
+    <article class="sub-container">
+        <h2>Edit Event
+            <ul class="details">
+                <li>{{detail}}</li>
+            </ul>
+        </h2>
+    </article>
 </section>
 </main>

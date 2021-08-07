@@ -61,4 +61,15 @@ router.get('/event/:id', async (req, res) => {
 
 // 4. View Private Event GET
 
+router.post('/logout', (req, res) => {
+    console.log(req.session.loggedIn);
+	if (req.session.loggedIn) {
+		req.session.destroy(() => {
+			res.status(204).redirect('/');
+		});
+	} else {
+		res.status(404).end();
+	}
+});
+
 module.exports = router;

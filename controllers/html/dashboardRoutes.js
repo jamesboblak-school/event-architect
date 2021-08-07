@@ -37,7 +37,6 @@ router.get('/users', async (req, res) => {
 // 1. View Dashboard GET
 router.get('/:id', async (req, res) => {
     console.log("View Dashboard");
-
 		if (!req.params.id) {
 			res.status(400).json({message: 'Need member id'});
 		}

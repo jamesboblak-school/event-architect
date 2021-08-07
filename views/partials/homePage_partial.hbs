@@ -1,13 +1,14 @@
-<section class="event-card">
-    <h1 class="card-title">Events</h1>
-    <article class="card-content">
+<section class="main-container mc--homepage">
+    <h1 class="title large">Events</h1>
+    <article class="">
 {{#each events}}
-<a href="event/{{id}}" class="event"><h3>{{id}}. {{title}}</h3></a>
+<a href="event/{{id}}" class="event"><h3>{{id}}. {{title}}</h3> &nbsp <h3>{{description}}</h3></a>
 {{/each}}
 
     </article>
+
+</section>
     <div class="circle1"></div>
     <div class="circle2"></div>
     <div class="circle3"></div>
-
-</section>
+    {{!-- <div class="circle4"></div> --}}

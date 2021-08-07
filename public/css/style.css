@@ -1,21 +1,19 @@
-*{
+@font-face {
+    font-family: myFirstFont;
+    src:url("../font/fof/fofbb_reg.ttf");
+}
+
+* {
     /* font-family: 'MonteCarlo', cursive; */
-     
-    /* --primary: #5e5751;
-    --secondary: #302e2a;
-    --accent: #ffffff;*/
-    --glass-thin: rgba(255, 255, 255, 0.4);
 
-    --glass-thick: rgba(238, 236, 236, 0.5);
-
-      /* --gradient: linear-gradient(
+    /* --gradient: linear-gradient(
          #00ffdd,         
          #00ffdd,         
          #00ffdd,         
          #00f7ff
     );    */
 
-  /* --gradient: linear-gradient(
+    /* --gradient: linear-gradient(
         #f949ff,    
         #f949ff,    
         #ff49ad,    
@@ -23,36 +21,59 @@
         #ffed84
    ); */
 
-   --gradient: linear-gradient(
-       #570057,
+    /*background 1*/
+    /* --gradient: linear-gradient(
        #b600b6,
        #b600b6,
        #db1bdb,
        #db1bdb,
        #f866f8,
        #f8b466
-   );
+   ); */
 
-   --primary: #e2e2e270;
-   /* --primary: #1e4652; */
-   /* --primary: #304045; */
-   /* --primary: rgb(0, 52, 56); */
-   --secondary: #ffffff;
-   /* --secondary: #f8e2bc; */
-   /* --secondary: #ffe1ad; */
-   /* --secondary: rgb(255, 247, 170); */
-   --accent: white;
-   --invertP: #570057;
-   --invertS: #f8b466;
-   /* --accent: rgb(165, 165, 165); */
+    --gradient: linear-gradient(#ffa33a,
+            #b600b6,
+            #b600b6,
+            #b600b6);
+
+    --glass-thin: #aca7f62c;
+    --glass-thick: #aca7f669;
+
+    --primary: #aca7f686;
+    --secondary: #93ffe8ab;
+    --accent: white;
+    --accentO: #ffffff80;
+    --invert: #570057;
+
+    --circle: #ffffff1a;
+
 }
 
-body{
-    margin:0;
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
     background: #ddd;
     background-image: var(--gradient);
-    /* background-color: var(--accent); */
-    height: 100vh;
+    /* background-repeat: no-repeat;
+    min-height: 100%;
+    background-position: center; */
+    /* background-size: cover; */
+
+    /* background-size: 200%; */
+    /* animation: bga 5s infinite alternate; */
+}
+
+@keyframes bga {
+    0% {
+        background-position: left;
+    }
+
+    100% {
+        background-position: right;
+    }
 }
 
 main {
@@ -64,10 +85,7 @@ main {
     margin: 5%;
 }
 
-
-
 /*------ NAV BAR ------- */
-
 .header {
     display: flex;
     flex-direction: row;
@@ -76,7 +94,7 @@ main {
     background-color: transparent;
     /* background-color: var(--glass-thick); */
     /* background-color: var(--primary); */
-    color: var(--secondary);
+    color: var(--accent);
     padding: 0px 100px;
     /* box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.5),
                 2px 2px 10px 5px rgba(255, 255, 255, 0.2);      */
@@ -86,15 +104,28 @@ main {
 .main-title {
     float: left;
     color: var(--accent);
+    transition: .4s ease-out;
+    border-radius: 15px;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+    font-family: myFirstFont;
 }
 
 .main-title:hover {
-    color: var(--invertS);
+    color: var(--invert);
+
+    box-shadow: 0px 0px 15px 15px var(--secondary);
+    background-color: var(--secondary);
+    
+    
+    /* box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.3),
+    0px 0px 15px 15px rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.5); */
 }
 
 
 .nav {
-float: right;  
+    float: right;
 }
 
 .nav ul {
@@ -106,167 +137,165 @@ float: right;
 }
 
 .nav li {
- 
+
     display: inline-block;
     margin-left: 50px;
 
     position: relative;
-    
+
 }
 
 .nav a {
-    color: var(--secondary);
+    color: var(--accent);
     transition: .2s ease-in-out;
-
+    /* height: fit-content; */
 }
 
 .nav a:hover {
-    color: var(--invertS);
-   
-
+    cursor: pointer;
+    /* background-color: var(--accent); */
+    color: var(--invert);
 }
-
-
 
 /* ------ HBS: hopePage ----- */
-.event-card {
-  
-    text-align: center;
+.main-container {
     position: relative;
-    /* background-color: var(--primary); */
+    margin-bottom: 50px;
     background-color: var(--glass-thick);
-    /* background: rgba(255, 255, 255, 0.432); */
-    box-shadow: 0px 0px 5px 5px rgba(255, 251, 251, 0.4),
-                2px 2px 15px 15px rgba(255, 255, 255, 0.2); 
-    /* border: 2px solid var(--accent); */
-    border-radius: 20px;
-    
+
+    border-radius: 15px;
+
     width: 80vw;
-    height: 80vh;
 
-    color: var(--secondary);
-z-index: 5;
-font-size: larger;
-
-}
-
-.event-card a{
-    float: left;
-    margin-left: 50px;
-    color: var(--secondary);
-}
-
-.event-card a:hover {
     color: var(--accent);
+    z-index: 5;
+    font-size: larger;
+    backdrop-filter: blur(2px);
 }
-/* .event-card::before {
-    content: ' ';
-    width: 100%;
-    height: 100%;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.301);
-    border-radius: 20px;
-    position: absolute;
-    z-index: -1;
-    backdrop-filter: blur(20px)
-} */
 
-/* .card-title {
-    
-} */
+.mc--homepage {
+    padding: 20px 50px;
+    height: 80vh;
+    text-align: center;
+
+}
+
+.mc--dashboard,
+.mc--auth1 {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    padding: 30px;
+}
 
 .event {
-    color: var(--secondary);
+    display: flex;
+    flex-direction: row;
     text-decoration: none;
+    float: left;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--accent);
+    letter-spacing: 2px;
+    padding-left: 10px;
+    transition: .4s ease-in-out;
+    border-radius: 15px;
 }
+
+.event:hover {
+    color: var(--invert);
+
+    box-shadow: 0px 0px 5px 5px var(--accentO);
+    background-color: var(--accentO);
+    border-radius: 15px;
+}
+
+/* IDEA FOR HOVER EFFECT */
+/* .event:hover {
+    box-shadow: 0px 0px 5px 5px var(--secondary);
+    background-color: var(--secondary);
+
+} */
+
 .circle1,
 .circle2,
-.circle3 {
+.circle3,
+.circle4 {
     position: absolute;
     border-radius: 50%;
-    
-    z-index: -2;
- 
+}
+
+.circle1 {
+    top: 150px;
+    left: -150px;
+    height: 350px;
+    width: 350px;
+    background-color: var(--circle);
 
 }
-.circle1 {
-    top: -50;
-    left: -50px;
-    height: 150px;
-    width: 150px;
-background-color: rgba(255, 255, 255, 0.5);
-/* box-shadow: 2px 0px 5px 5px rgba(255, 255, 255, 0.3),
-2px 2px 10px 10px rgba(255, 255, 255, 0.2); */
-}
+
 .circle2 {
-    bottom: -50px;
-    right: 400px;
+    bottom: 15px;
+    right: 200px;
     height: 300px;
     width: 300px;
-    background-color: rgba(255, 255, 255, 0.5);
-    /* box-shadow: 0px -5px 5px 5px rgba(255, 255, 255, 0.3),
-    2px -5px 10px 10px rgba(255, 255, 255, 0.2); */
+    background-color: var(--circle);
 
 
 }
+
 .circle3 {
     top: 300px;
     right: 50px;
     height: 150px;
     width: 150px;
-    background-color: rgba(255, 255, 255, 0.5);
-    /*box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.3),
-    2px 2px 10px 10px rgba(255, 255, 255, 0.2); */
+    background-color: var(--circle);
+
 }
+
+/* .circle4 {
+    bottom: 100px;
+    left: 100px;
+    height: 150px;
+    width: 150px;
+    background-color: var(--circle);
+
+} */
 
 /* -------- dashboard -------- */
 
-.top, .bottom, .auth-card {
-    display: flex;
-    flex-direction: row;
-    /* background: var(--glass-thin); */
-    background-color: var(--glass-thick);
-    width: 90vw;
-    height: fit-content;
-    padding: 30px;
-    /* justify-content: space-between; */
-    border-radius: 15px;
-    color: var(--secondary);
-    /* border: 2px solid var(--secondary); */
-    box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.4),
-    2px 2px 15px 15px rgba(255, 255, 255, 0.2);  
-    margin-bottom: 50px;
-}
-
 .profile {
 
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     width: 30%;
     padding: 30px;
-    
+
 }
 
 .username {
     font-size: larger;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    
+    /* color: var(--accent); */
+    font-family: myFirstFont;
+
 }
 
 .profile-picture img {
-    height:100px;
-    width:100px;
-    background-color: var(--secondary);
+    height: 100px;
+    width: 100px;
+    background-color: var(--accent);
     border-radius: 50%;
     margin-bottom: 20px;
 }
 
-.followers-btn, .following-btn {
+.followers-btn,
+.following-btn {
     margin: 5px;
     background-color: var(--primary);
-    color: var(--secondary);
+    color: var(--accent);
     border: none;
     padding: 5px 10px;
     border-radius: 15px;
@@ -276,53 +305,47 @@ flex-direction: column;
 
 }
 
-.followers-btn:hover, .following-btn:hover {
+.followers-btn:hover,
+.following-btn:hover {
     cursor: pointer;
     background-color: var(--accent);
-    color: var(--invertP);
+    color: var(--invert);
 }
-.my-events,
-.managed-events, 
-.signin-card,
-.signup-card {
-    background-color: var(--primary);
+
+.sub-container {
+    background-color: var(--secondary);
     border-radius: 15px;
     justify-content: start;
     padding: 20px 40px;
     margin: 0px;
     width: 100%;
-    color: var(--invertP);
-    
+    color: var(--accent);
+
 }
 
 .title {
-text-align: center;
-font-size: larger;
-letter-spacing: 2.5;
-border-bottom: 1px solid var(--invertP);
-line-height: 2rem;
+    text-align: center;
+    font-size: larger;
+    letter-spacing: 2.5;
+    border-bottom: 1px solid var(--accent);
+    line-height: 2rem;
+    font-family: myFirstFont;
 }
 
-.event{
-    color: var(--invertP);
-    font-weight: bold;
-    letter-spacing: 2px;
-    transition: .1s ease-in-out;
-}
-
-.event:hover{
-    color: var(--accent);
-}
-
-#oneline {
+#oneline,
+#oneline--close-modal {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+#oneline--close-modal {
+    padding: 0 15%;
+}
+
 .edit-btn {
     background-color: var(--primary);
-    color: var(--secondary);
+    color: var(--accent);
     border: none;
     padding: 5px 10px;
     border-radius: 15px;
@@ -334,12 +357,64 @@ line-height: 2rem;
 .edit-btn:hover {
     cursor: pointer;
     background-color: var(--accent);
-    color: var(--invertP);
+    color: var(--invert);
+}
+
+/* the modal (background) */
+.modal {
+    /* hidden by default */
+    display: none;
+    /* stay in place */
+    position: fixed;
+    /* sit on top */
+    z-index: 5;
+    /* padding on all sides*/
+    padding-top: 100px;
+    /* location of the box */
+    left: 0;
+    /* location of the box */
+    top: 0;
+    /* full width */
+    width: 100%;
+    /* full height */
+    height: 100%;
+    /* black with opacity */
+    background-color: rgba(172, 167, 246, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    margin: auto;
+    width: 50%;
+    height: 50%;
+    border: 5px solid var(--invert);
+    border-radius: 15px;
+    color: var(--accent);
+    padding-top: 15px;
+}
+
+.close {
+
+    cursor: pointer;
+    background-color: transparent;
+    color: vaR(--accent);
+    font-size: 2rem;
+    border: none;
+    transition: .3s ease-in-out;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 10px;
+    border-radius: 50%;
+}
+
+.close:hover {
+    color: var(--invert);
+    background-color: var(--secondary);
+    box-shadow: 0px 0px 5px 5px var(--secondary);
 }
 
 /* 50 lines up */
-.signin-card,
-.signup-card {
+.mc--auth {
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -350,7 +425,7 @@ line-height: 2rem;
     margin: 5px;
     padding: 5px;
     border: none;
-    color: var(--invertP);
+    color: var(--invert);
     background-color: var(--accent);
     border-radius: 15px;
 }
@@ -358,29 +433,34 @@ line-height: 2rem;
 .usernameinput::placeholder,
 .password::placeholder {
     letter-spacing: 1px;
-    color: var(--invertP);
+    color: var(--invert);
     opacity: .5;
 }
 
 .submit {
     width: fit-content;
-    align-self:center;
+    align-self: center;
     margin: 10px;
 }
 
 .submit {
     background-color: var(--primary);
-    color: var(--secondary);
+    color: var(--accent);
     border: none;
     padding: 5px 10px;
     border-radius: 15px;
     font-weight: bold;
     letter-spacing: 2px;
-    transition: .1s ease-in-out;
+    transition: .5s ease-in-out;
 }
 
 .submit:hover {
     cursor: pointer;
     background-color: var(--accent);
-    color: var(--invertP);
+    color: var(--invert);
+}
+
+.large {
+    font-size: 50px;
+    padding-bottom: 10px;
 }

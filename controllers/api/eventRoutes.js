@@ -63,7 +63,10 @@ try {
         });
         return;
     }
-    res.status(200).render(`dashboard/${req.session.userId}`); //CHECK !!!!!!!!!!!!
+    res.status(200).render(`dashboard/${req.session.userId}`,{
+			loggedIn: req.session.loggedIn,
+			id: req.session.userId
+		}); //CHECK !!!!!!!!!!!!
 } catch (err) {
     res.status(500).json(err);
 };
@@ -93,7 +96,9 @@ router.delete('/:id', async (req, res) => {
         //     plain: true
         // });
         res.status(200).render('homePage', {
-            data: eventData
+            data: eventData,
+						loggedIn: req.session.loggedIn,
+						id: req.session.userId
         });
     } catch (err) {
         console.log("error: " + err);

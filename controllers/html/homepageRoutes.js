@@ -16,9 +16,12 @@ router.get('/', async (req, res) => {
             plain: true
         }));
 
+				console.log(req.session)
         //   handlebars to main.hbs
-     res.status(200).render('homePage', {
-            events: eventsPlain//, loggedIn: req.session.loggedIn
+     		res.status(200).render('homePage', {
+            events: eventsPlain, 
+						loggedIn: req.session.loggedIn,
+						id: req.session.userId
         });
     } catch (err) {
         console.log("error:" + err)
@@ -58,8 +61,8 @@ router.get('/event/:id', async (req, res) => {
 
 // 4. View Private Event GET
 
-router.post('/logout', (req, res) => {
-    console.log(req.session.loggedIn);
+router.get('/logout', (req, res) => {
+   console.log(req.session.loggedIn);
 	if (req.session.loggedIn) {
 		req.session.destroy(() => {
 			res.status(204).redirect('/');

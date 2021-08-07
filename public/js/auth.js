@@ -20,8 +20,8 @@ function login() {
 
 
 			if (response.ok) {
-				const {message} = await response.json();			
-				console.log(`here: ${message}`)
+				const {username, userId} = await response.json();
+				document.location.replace(`/dashboard/${userId}`);
 			}
 		} else {
 			console.log('No username or password input')

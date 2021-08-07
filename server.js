@@ -14,7 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(routes);
 
 app.engine('.hbs', exphbs({helpers, extname: '.hbs'}));
 app.set('view engine', '.hbs');
@@ -23,7 +22,7 @@ const PORT = process.env.PORT || 3001;
 
 const sess = {
 	secret: process.env.sessPw,
-	cookie: {},
+	cookie: {maxAge: (30 * 60 * 1000)}, //30 minutes = 1800000 ms
 	resave: false,
 	saveUnitialized: true,
 	store: new SqlizeStor({
@@ -32,6 +31,7 @@ const sess = {
 };
 
 app.use(expsess(sess));
+app.use(routes);
 
 sequelize.sync({force: false}).then(() => {
 	app.listen(PORT, () => {

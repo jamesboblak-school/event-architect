@@ -1,17 +1,38 @@
 <main>
-    <section class="mc--search mc--auth1">
+    <section class="mc--search">
     <p class="search-identifier"></p>
     <h3 class="search-title"></h3>
         <article class="sub-container mc--auth">
             <h3>Search User</h3>
-            <input type="text" class="password" id="login-pw" placeholder="Search">
-            <button class="submit" id="userReq">Submit</button>
+                <input type="text" class="password" id="memSearch" placeholder="Search">
+                <button class="submit" id="memReq">Submit</button>
         </article>
 
         <article class="sub-container mc--auth">
             <h3>Search Event</h3>
-            <input type="text" class="password" id="sEvent" placeholder="Search">
-            <button class="submit" id="eventReq">Submit</button>
+                <input type="text" class="password" id="eventSearch" placeholder="Search">
+                <button class="submit" id="eventReq">Submit</button>
         </article>
 </section>
+
+<div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+
+<section class="mc--search quick-fix">
+    <h1 class="title">SearchResults</h1>
+    
+        <ul class="search-results"></ul>
+        {{#each members}}
+        <li class="event quick-fix2">{{username}}
+        <a href="/dashboard/{{id}}"></a>
+            <button class="followers-btn">Unfollow</button>
+        </li>
+        {{/each}}
+    
+</section>
+
+
 </main>
+
+<script src="/js/search.js"></script>

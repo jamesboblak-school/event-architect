@@ -1,5 +1,5 @@
 @font-face {
-    font-family: myFirstFont;
+    font-family: feastOfFlesh;
     src:url("../font/fof/fofbb_reg.ttf");
 }
 
@@ -31,7 +31,7 @@
        #f8b466
    ); */
 
-    --gradient: linear-gradient(#ffa33a,
+    --gradient: repeating-linear-gradient(#ffa33a,
             #b600b6,
             #b600b6,
             #b600b6);
@@ -57,13 +57,8 @@ body {
     margin: 0;
     background: #ddd;
     background-image: var(--gradient);
-    /* background-repeat: no-repeat;
-    min-height: 100%;
-    background-position: center; */
-    /* background-size: cover; */
-
-    /* background-size: 200%; */
-    /* animation: bga 5s infinite alternate; */
+    background-repeat: no-repeat;
+    background-color: #b600b6;
 }
 
 @keyframes bga {
@@ -108,12 +103,13 @@ main {
     border-radius: 15px;
     padding: 5px 10px;
     letter-spacing: 2px;
-    font-family: myFirstFont;
+    font-family: feastOfFlesh;
+    -webkit-text-stroke: 1px #000000;
 }
 
 .main-title:hover {
     color: var(--invert);
-
+    -webkit-text-stroke: 1px var(--invert);
     box-shadow: 0px 0px 15px 15px var(--secondary);
     background-color: var(--secondary);
     
@@ -170,7 +166,7 @@ main {
     color: var(--accent);
     z-index: 5;
     font-size: larger;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(5px);
 }
 
 .mc--search {
@@ -186,9 +182,15 @@ main {
     color: var(--accent);
     z-index: 5;
     font-size: larger;
-    backdrop-filter: blur(2px);
+   
     justify-content: center;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    padding: 30px;
+    backdrop-filter: blur(5px);
 }
+
 
 .mc--homepage {
     padding: 20px 50px;
@@ -213,9 +215,27 @@ main {
     margin: 0px;
     width: 100%;
     color: var(--accent);
-
+    backdrop-filter: blur(5px);
 }
 
+.mc--auth {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quick-fix {
+    display: flex;
+    flex-direction: column;
+    color: var(--accent);
+    letter-spacing: 2px;
+    padding-left: 10px;
+    transition: .4s ease-in-out;
+}
+
+.quick-fix2 {
+    margin-bottom: 10px;
+}
 .event {
     display: flex;
     flex-direction: row;
@@ -302,11 +322,11 @@ main {
 }
 
 .username {
-    font-size: larger;
+    font-size: 1.25em;
     letter-spacing: 2.5px;
     text-transform: uppercase;
     /* color: var(--accent); */
-    font-family: myFirstFont;
+    font-family: feastOfFlesh;
 
 }
 
@@ -345,7 +365,6 @@ main {
     letter-spacing: 2.5;
     border-bottom: 1px solid var(--accent);
     line-height: 2rem;
-    font-family: myFirstFont;
 }
 
 #oneline,
@@ -427,13 +446,6 @@ main {
     color: var(--invert);
     background-color: var(--secondary);
     box-shadow: 0px 0px 5px 5px var(--secondary);
-}
-
-/* 50 lines up */
-.mc--auth {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 .usernameinput,

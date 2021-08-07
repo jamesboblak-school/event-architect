@@ -40,7 +40,7 @@
     --glass-thick: #aca7f669;
 
     --primary: #aca7f686;
-    --secondary: #93ffe8ab;
+    --secondary: rgba(148, 255, 232, 0.671);
     --accent: white;
     --accentO: #ffffff80;
     --invert: #570057;
@@ -173,6 +173,23 @@ main {
     backdrop-filter: blur(2px);
 }
 
+.mc--search {
+
+    position: relative;
+    margin-bottom: 50px;
+    background-color: var(--glass-thick);
+
+    border-radius: 15px;
+
+    width: 80vw;
+
+    color: var(--accent);
+    z-index: 5;
+    font-size: larger;
+    backdrop-filter: blur(2px);
+    justify-content: center;
+}
+
 .mc--homepage {
     padding: 20px 50px;
     height: 80vh;
@@ -186,6 +203,17 @@ main {
     flex-direction: row;
     height: fit-content;
     padding: 30px;
+}
+
+.sub-container {
+    background-color: var(--secondary);
+    border-radius: 15px;
+    justify-content: start;
+    padding: 20px 40px;
+    margin: 0px;
+    width: 100%;
+    color: var(--accent);
+
 }
 
 .event {
@@ -216,7 +244,6 @@ main {
     background-color: var(--secondary);
 
 } */
-
 .circle1,
 .circle2,
 .circle3,
@@ -310,17 +337,6 @@ main {
     cursor: pointer;
     background-color: var(--accent);
     color: var(--invert);
-}
-
-.sub-container {
-    background-color: var(--secondary);
-    border-radius: 15px;
-    justify-content: start;
-    padding: 20px 40px;
-    margin: 0px;
-    width: 100%;
-    color: var(--accent);
-
 }
 
 .title {

@@ -1,3 +1,4 @@
+const router = require('../controllers/api/memberRoutes');
 const {MemberMember} = require('../models');
 
 const memberMembers = [

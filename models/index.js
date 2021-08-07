@@ -46,7 +46,7 @@ Member.belongsToMany(Member, {
 		unique: false
 	},
 	as: 'followed'
-})
+});
 
 Event.hasMany(Detail, {
 	foreignKey: 'event_id',

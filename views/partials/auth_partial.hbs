@@ -1,16 +1,19 @@
 <section class="auth-card">
     <article class="signin-card">
         <h3>Sign In</h3>
-       <input type="text" class="usernameinput" placeholder="Username">
-        <input type="text" class="password" placeholder="Password">
-        <button class="submit">Submit</button>
+       <input type="text" class="usernameinput" id="login-user" placeholder="Username">
+        <input type="text" class="password" id="login-pw" placeholder="Password">
+        <button class="submit" id="login-btn">Submit</button>
     </article>
 
     <article class="signup-card">
         <h3>Sign up</h3>
-        <input type="text" class="usernameinput" placeholder="Username">
-        <input type="text" class="password" placeholder="Password">
-        <button class="submit">Submit</button>
+        <input type="text" class="usernameinput" id="signup-user" placeholder="Username">
+        <input type="text" class="password" id="signup-pw" placeholder="Password">
+				<input type="text" class="password" id="signup-email" placeholder="Email">
+        <button class="submit" id="sign-up-btn">Submit</button>
 
     </article>
 </section>
+
+<script src='./js/auth.js'></script>

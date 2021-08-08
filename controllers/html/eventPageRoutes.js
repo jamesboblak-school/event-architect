@@ -6,7 +6,7 @@ const { Event, Message, Member, Detail } = require('../../models');
 router.get('/:id', async (req, res) => {
     // console.log("TROY",events)
 
-		console.log('hello')
+		// console.log('hello')
     try {
         //get all users
         const eventData = await Event.findByPk(req.params.id, {
@@ -18,6 +18,8 @@ router.get('/:id', async (req, res) => {
 
         });
 
+        console.log("eventData: " + eventData)
+        
         if (!eventData) {
             res.status(404).json({ message: 'Event Not Found!' });
             return;
@@ -28,7 +30,7 @@ router.get('/:id', async (req, res) => {
         // // if user logged in:
         // if (req.session.loggedIn) {
         //     //render member data to search page
-				console.log(event)
+				console.log("event: ", event)
         res.render('eventPage', event);
         // }
         // //else redirect to log-in page

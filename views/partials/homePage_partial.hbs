@@ -1,11 +1,11 @@
     <section class="main-container mc--homepage">
-        <article class="sub-container sc__homepage">
         <h1 class="title large">Events</h1>
-        <div class="event-collection"></div>
+        <article class="sub-container sc__homepage">
+        <div class="event-collection">
         {{#each events}}
             <a href="http://localhost:3001/event/{{id}}">
                 <div class="event-card">
-                    <h3>{{id}}. {{title}}</h3>
+                    <h3 class="title">{{title}}</h3>
                     <h3>{{description}}</h3>
                 </div>
             </a>

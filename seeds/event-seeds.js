@@ -5,7 +5,7 @@ const events = [
 		title: 'Rave',
 		description: 'This is a cool rave',
 		isPrivate: true,
-		author_id: 1
+		author_id: 4
 	},
 	{
 		title: 'Rave2',
@@ -15,9 +15,9 @@ const events = [
 	},
 	{
 		title: 'beach',
-		description: 'A cool party by the beach',
+		description: 'A relaxing day by the beach',
 		isPrivate: true,
-		author_id: 2
+		author_id: 4
 	},
 	{
 		title: 'picnic',
@@ -29,12 +29,12 @@ const events = [
 		title: 'Party',
 		description: 'A cool party at my place',
 		isPrivate: true,
-		author_id: 2
+		author_id: 4
 	},	{
 		title: 'hike',
-		description: 'come see the view',
+		description: 'Come check out the view and get in some cardio',
 		isPrivate: true,
-		author_id: 3
+		author_id: 4
 	},
 	{
 		title: 'dinner',

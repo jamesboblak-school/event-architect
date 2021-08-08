@@ -1,4 +1,5 @@
-<section class="main-container mc__dashboard">
+<section class="mc__dashboard">
+    <section class="main-container">
     <article class="sc__dashboard profile">
         <h3 class="username">{{memberPlain.username}}</h3>
         <img src="/images/userImg.png" alt="" class="portrait">
@@ -7,14 +8,15 @@
             <button id="following-btn" class="contact-btn">Following</button>
         </div>
     </article>
-
+    </section>
+<section class="main-container">
     <article class="sub-container sc__dashboard">
         <h3 class="title">My Events</h3>
         <div class="event-collection">
             {{#each attendingEventsPlain as |event|}}
                 <a href="http://localhost:3001/event/{{id}}">
                     <div class="event-card">
-                        <p class="event title">{{event.title}}</p>
+                        <p class="title">{{event.title}}</p>
                         <p>{{description}}</p>
                     {{!-- {{#each event.description as |info|}} --}}
                     {{!-- <p>{{info.time}}: {{info.content}}</p>
@@ -31,21 +33,20 @@
         <h3 class="title">Managed Events</h3>
         <div class="event-collection">
             {{#each createdEventsPlain as |event|}}
-            <div>
-            <button class="edit-btn">Edit</button>
-                 <a href="http://localhost:3001/event/{{id}}">
-                    <div class="event-card__edit">
-                        <p class="event title">{{event.title}}</p>
-                        <p>{{description}}</p>
-                        
-                    </div>
-                </a>
+                <div id="hover">
+                    <a href="http://localhost:3001/event/{{id}}">
+                        <div class="event-card">
+                            <button class="edit-btn">Edit</button>
+                            <p class="event title">{{event.title}} </p>
+                            <p>{{description}}</p>    
+                        </div>
+                    </a>
                 </div>
             {{/each}}
         </div>
     </article>
 </section>
-
+</section>
 <section class="modal">
 
     <article class="modal-content">

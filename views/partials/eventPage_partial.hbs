@@ -13,13 +13,13 @@
     <article class="sub-container sc__dashboard">
         <h3 class="title">Managed Events</h3>
         <div class="event-collection">
-            {{#each createdEventsPlain as |event|}}
+            {{#each event}}
             <div>
             <button class="edit-btn">Edit</button>
                  <a href="http://localhost:3001/event/{{id}}">
                     <div class="event-card__edit">
                         <p class="event title">{{event.title}}</p>
-                        <p>{{description}}</p>
+                        <p>{{event.description}}</p>
                         
                     </div>
                 </a>

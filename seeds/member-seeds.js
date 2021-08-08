@@ -16,6 +16,11 @@ const members = [
 		username: 'uberMan',
 		password: '12345678',
 		email: 'man@yahoo.com'
+	},
+	{
+		username: 'mikeEvans',
+		password: '12345678',
+		email: 'mike@fake.com'
 	}
 ];
 

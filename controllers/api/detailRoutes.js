@@ -41,4 +41,38 @@ router.put('/', async (req, res) => {
 	}
 });
 
+router.post('/', async (req, res) => {
+	if (!req.body) {
+		res.status(400).end()
+	}
+	try {
+		const detail = await Detail.create(req.body)
+
+		console.log(detail)
+		res.status(200).end();
+	} catch(err) {
+		console.log(err)
+		res.status(500).end();
+	}
+})
+
+router.delete('/:id', async (req, res) => {
+	if (!req.params.id) {
+		res.status(400).end();
+	}
+
+	try {
+		const detail = await Detail.destroy({
+			where: {
+				id: req.params.id
+			}
+		});
+
+		res.status(200).end();
+	} catch(err) {
+		console.log(err)
+		res.status(500).end();
+	}
+})
+
 module.exports = router;

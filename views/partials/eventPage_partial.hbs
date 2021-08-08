@@ -1,11 +1,11 @@
-{{!-- <section class="main-container">
+<section class="main-container">
     <div id="oneline">
     <h3 class="title" id="event-title" data-id="{{id}}">{{title}}</h3>
     <button class="edit-btn">Edit</button>
     </div>
     <p class="event">{{description}}</p>
    
-</section> --}}
+</section>
 
 {{!-- DENZEL --}}
 
@@ -49,8 +49,9 @@
 										<span class="content">{{content}}</span>
 										<span class="detail-id" style="display: none;">{{id}}</span>
 										<span class="event-id" style="display: none;">{{event_id}}</span>
+										<button class="list-edit-btn" id="{{id}}">Edit</button>
+										<button class="list-remove-btn" id="{{id}}">Remove</button>
 									</li>
-									<button class="list-edit-btn" id="{{id}}">Edit</button>
 								</div>
 								{{/each}}
 				    </ul>

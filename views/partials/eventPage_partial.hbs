@@ -1,9 +1,9 @@
 <section class="main-container">
     <div id="oneline">
-    <h3 class="title">event title{{title}}</h3>
+    <h3 class="title">{{title}}</h3>
     <button class="edit-btn">Edit</button>
     </div>
-    <p class="event">event description{{description}}</p>
+    <p class="event">{{description}}</p>
    
 </section>
 
@@ -17,12 +17,22 @@
 </section>
 
 <section class="main-container">
-    <article class="sub-container">
-        <h2>Edit Event
-            <ul class="details">
-                <li>{{detail}}</li>
-            </ul>
-        </h2>
+    <article id="detail-list" class="sub-container">
+            <ul class="details list">
+								{{#each details}}
+                <div id="oneline">
+									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
+									<li class="list-el">
+										<span class="content">{{content}}</span>
+										<span class="detail-id" style="display: none;">{{id}}</span>
+										<span class="event-id" style="display: none;">{{event_id}}</span>
+									</li>
+									<button class="list-edit-btn" id="{{id}}">Edit</button>
+								</div>
+								{{/each}}
+				    </ul>
     </article>
 </section>
 </main>
+
+<script src="../js/listjs.js"></script>

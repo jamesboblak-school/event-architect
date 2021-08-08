@@ -27,6 +27,8 @@ router.get('/:id', async (req, res) => {
 
         // create object without extra data
         const event = eventData.get({ plain: true });
+				event.loggedIn = req.session.loggedIn;
+				event.isAuthor = req.session.userId === event.author_id;
         // // if user logged in:
         // if (req.session.loggedIn) {
         //     //render member data to search page

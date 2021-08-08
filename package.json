@@ -8,8 +8,9 @@
     "start": "node server.js",
     "watch": "nodemon server.js",
     "seed": "node ./seeds/index.js",
-		"prewatch": "echo 'running browserify' && browserify public/js/list.js -o public/js/listjs.js && echo 'can now start server'"
-  },
+		"prewatch": "echo 'running browserify' && browserify public/js/list.js -o public/js/listjs.js && echo 'can now start server'",
+		"build": "echo 'setting up' && browserify public/js/list.js -o public/js/listjs.js && npm node ./seeds/index.js"
+	},
   "keywords": [],
   "author": "",
   "license": "ISC",

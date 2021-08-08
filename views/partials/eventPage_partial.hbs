@@ -22,7 +22,11 @@
 								{{#each details}}
                 <div id="oneline">
 									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
-									<li class="list-el"><span class="content">{{content}}</span><span class="id" style="display: none;">{{id}}</span></li>
+									<li class="list-el">
+										<span class="content">{{content}}</span>
+										<span class="detail-id" style="display: none;">{{id}}</span>
+										<span class="event-id" style="display: none;">{{event_id}}</span>
+									</li>
 									<button class="list-edit-btn" id="{{id}}">Edit</button>
 								</div>
 								{{/each}}

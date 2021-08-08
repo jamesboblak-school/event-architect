@@ -36,10 +36,15 @@ function editListEl() {
 	}
 }
 
+async function updateDetails(content) {
+
+	const response = await fetch('')
+
+}
 
 function editListEl2() {
 	let options = {		
-		valueNames: ['id', 'content']
+		valueNames: ['detail-id', 'content']
 	};
 
 	let detailList = new List('detail-list', options); //Create List object as defined in list.js. Finds the child list element
@@ -77,6 +82,7 @@ function editListEl2() {
 				
 				listElSubmit.remove();
 				listEditBtns[i].style.display = "inline-block";
+				console.log('test')
 			});
 		});
 	}

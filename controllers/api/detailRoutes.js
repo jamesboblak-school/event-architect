@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
 
 });
 
-router.put('/:id', async (req, res) => {
-	if (!req.params.id || !req.body) {
+router.put('/', async (req, res) => {
+	if (!req.body) {
 		res.status(400).end()
 	}
 	try {
@@ -23,7 +23,7 @@ router.put('/:id', async (req, res) => {
 			content: req.body.content 
 		}, {
 			where: {
-				id: req.params.id
+				id: req.body.detail_id
 			},
 			include: [{
 				model: Event,
@@ -33,7 +33,8 @@ router.put('/:id', async (req, res) => {
 			}]
 		});
 
-		res.json({detail})
+		res.json({event_id: req.body.event_id, detail_id: req.body.event_id});
+
 	} catch(err) {
 		console.log(err)
 		res.status(500).json({err: err});

@@ -8,10 +8,6 @@ router.get('/', (req, res) => {
 		loggedIn: req.session.loggedIn
 	});
 	
-	if (req.session.loggedIn) {
-		res.redirect('/');
-		return;
-	  }
 });
 
 router.post('/', async (req, res) => {

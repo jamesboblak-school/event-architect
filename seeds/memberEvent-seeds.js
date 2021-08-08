@@ -32,6 +32,38 @@ const memberEvents = [
 	{
 		member_id: 2,//uber
 		event_id: 8//barbeque
+	},
+	{	
+		member_id: 4,//mike
+		event_id: 1//rave
+	},
+	{
+		member_id: 4,//mike
+		event_id: 2//rave2
+	},
+	{
+		member_id: 4,//mike
+		event_id: 3//beach
+	},
+	{
+		member_id: 4,//mike
+		event_id: 4//picnic
+	},
+	{
+		member_id: 4,//mike
+		event_id: 5//party
+	},
+	{
+		member_id: 4,//mike
+		event_id: 6//hike
+	},
+	{
+		member_id: 4,//mike
+		event_id: 7//dinner
+	},
+	{
+		member_id: 4,//mike
+		event_id: 8//barbeque
 	}
 ];
 

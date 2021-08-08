@@ -226,21 +226,8 @@ main {
 
 /* -------- DASHBOARD CONTAINER -------- */
 .mc__dashboard {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    justify-content: center;
-    
-    /* justify-content: space-around; */
-    /* justify-items: stretch;
-    align-items: stretch; */
-    
-}
-
-@media only screen and (max-width: 850px) {
-    .mc__dashboard {
-        grid-template-columns: auto;
-    }
-    
+display:flex;
+flex-direction:column;
 }
 
 .sc__dashboard {
@@ -300,32 +287,61 @@ main {
     justify-items: stretch;
     grid-gap: 1em; */
     /* grid-auto-columns: auto; */
+    margin: 0 40px;
 }
 
-#hp_fix,
-.event-collection a,
-.event-card a,
-.event-card h3,
-.event-card {
+
+.event-collection a {
     text-decoration: none;
     color: var(--accent);
 }
 
 .event-card {
+    position: relative;
     background-color: var(--secondary);
     border-radius: 15px;
     margin: 0 1rem 1rem 1rem;
     padding: 20px;
     max-width: 7rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2),
+                0 0 10px 10px rgba(0, 0, 0, 0.1);
+    transition: .25s ease-in-out;
 }
 
-.event-card__edit {
+/* .event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 17%;
+    border-radius: 15px 15px 0 0;
+    background-color: var(--invert2);
+    opacity: 0;
+    transition: .15s ease-in-out;
+} */
+
+.event-card:hover {
+    transform: scale( 105%);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1),
+                0px 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* .event-card:hover::before {
+    opacity: 1;
+    transition: .15s ease-in-out;
+} */
+/* .event-card__edit {
+    position: relative;
     background-color: var(--secondary);
-    border-radius: 0 0 15px 15px;
+    /* border-radius: 0 0 15px 15px; */
+   /* border-radius: 15px;
     margin: 0 1rem 1rem 1rem;
     padding: 20px;
     max-width: 7rem;
-}
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2),
+                0 0 10px 10px rgba(0, 0, 0, 0.1);
+} */
 
 
 /* .quick-fix {
@@ -451,6 +467,10 @@ main {
 
 
 .edit-btn {
+    position: absolute;
+    top: 0;
+    left: -16px;
+    z-index: 1;
     margin: 0 1rem;
     padding: 5px 59.5px;
     background-color: var(--invert2);
@@ -459,7 +479,10 @@ main {
     border-radius: 15px 15px 0 0;
     font-weight: bold;
     letter-spacing: 2px;
-    transition: .2s ease-in-out;
+    transition: .25s;
+    /* box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2),
+                0 0 10px 10px rgba(0, 0, 0, 0.1); */
+    
 }
 
 .edit-btn:hover,
@@ -467,6 +490,7 @@ main {
     cursor: pointer;
     background-color: var(--invert);
     color: var(--accent);
+
 }
 
 .contact-btn {

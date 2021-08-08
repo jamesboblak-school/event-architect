@@ -1,10 +1,10 @@
 function login() {
-	const loginBtn = document.getElementById('login-btn');
+	const loginBtn = document.getElementById('signin-btn');
 	
 	loginBtn.addEventListener('click', async (e) => {
 		e.preventDefault();
-		const loginUserInput = document.getElementById('login-user').value.trim();
-		const loginPwInput = document.getElementById('login-pw').value.trim();
+		const loginUserInput = document.getElementById('signin-user').value.trim();
+		const loginPwInput = document.getElementById('signin-pw').value.trim();
 
 		if (loginUserInput && loginPwInput) {
 			const body = {
@@ -30,7 +30,7 @@ function login() {
 }
 
 function signUp() {
-	const signUpBtn = document.getElementById('sign-up-btn');
+	const signUpBtn = document.getElementById('signup-btn');
 
 	signUpBtn.addEventListener('click', async () => {
 		const signUpUser = document.getElementById('signup-user').value.trim();
@@ -51,8 +51,8 @@ function signUp() {
 			});
 
 			if (response.ok) {
-				const {message} = await response.json();
-				console.log(message);
+				const {id} = await response.json();
+				document.location.replace(`/dashboard/${id}`)
 			} else {
 				console.log('No username, password, or email input')
 			}

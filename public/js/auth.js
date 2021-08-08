@@ -51,8 +51,8 @@ function signUp() {
 			});
 
 			if (response.ok) {
-				const {message} = await response.json();
-				console.log(message);
+				const {id} = await response.json();
+				document.location.replace(`/dashboard/${id}`)
 			} else {
 				console.log('No username, password, or email input')
 			}

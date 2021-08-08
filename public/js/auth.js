@@ -1,7 +1,9 @@
 function login() {
-	const loginBtn = document.getElementById('signin-btn');
-	
-	loginBtn.addEventListener('click', async (e) => {
+	// const loginBtn = document.getElementById('signin-btn');
+	const signinForm = document.getElementById('signin-form');
+
+	signinForm.addEventListener('submit', async (e) => {
+		console.log('here')
 		e.preventDefault();
 		const loginUserInput = document.getElementById('signin-user').value.trim();
 		const loginPwInput = document.getElementById('signin-pw').value.trim();
@@ -30,9 +32,12 @@ function login() {
 }
 
 function signUp() {
-	const signUpBtn = document.getElementById('signup-btn');
+	// const signUpBtn = document.getElementById('signup-btn');
+	const signUpForm = document.getElementById('signup-form');
 
-	signUpBtn.addEventListener('click', async () => {
+	signUpForm.addEventListener('submit', async (e) => {
+		console.log('signup')
+		e.preventDefault();
 		const signUpUser = document.getElementById('signup-user').value.trim();
 		const signUpPw = document.getElementById('signup-pw').value.trim();
 		const signUpEmail = document.getElementById('signup-email').value.trim();
@@ -50,6 +55,7 @@ function signUp() {
 				headers: {'Content-Type': 'application/json'}
 			});
 
+			console.log('here signup')
 			if (response.ok) {
 				const {id} = await response.json();
 				document.location.replace(`/dashboard/${id}`)

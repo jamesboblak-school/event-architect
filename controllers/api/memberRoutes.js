@@ -1,16 +1,6 @@
 // associate the models in variables
 const router = require('express').Router();
-// const {
-//     Member,
-//     Message,
-//     Detail,
-//     Event,
-//     //   CHECK '_' in Member_event !!!!!!! CHECK
-//     Member_event,
-//     //   CHECK '_' in Member_member !!!!!!! CHECK
-//     Member_member
-// } = require('../models');
-
+const {Member} = require('../../models');
 
 //   ============USER ROUTES============
 // 2. Become a Member POST

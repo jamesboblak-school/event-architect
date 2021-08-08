@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
         // // if user logged in:
         // if (req.session.loggedIn) {
         //     //render member data to search page
-             res.render('searchPage', { members, loggedIn: req.session.loggedIn});
+             res.render('searchPage', { members, loggedIn: req.session.loggedIn, id: req.session.userId});
         // }
         // //else redirect to log-in page
         // else res.redirect('login');

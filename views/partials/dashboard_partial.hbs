@@ -1,7 +1,8 @@
-<section class="mc__dashboard">
+
+    <section class="mc__dashboard">
     <section class="main-container">
     <article class="sc__dashboard profile">
-        <h3 class="username">{{memberPlain.username}}</h3>
+        <h3 class="username section-title">{{memberPlain.username}}</h3>
         <img src="/images/userImg.png" alt="" class="portrait">
         <div id="oneline">
             <button id="followers-btn" class="contact-btn">Followers</button>
@@ -11,7 +12,7 @@
     </section>
 <section class="main-container">
     <article class="sub-container sc__dashboard">
-        <h3 class="title">My Events</h3>
+        <h3 class="title section-title">My Events</h3>
         <div class="event-collection">
             {{#each attendingEventsPlain as |event|}}
                 <a href="http://localhost:3001/event/{{id}}">
@@ -28,9 +29,10 @@
     </article>
 </section>
 
-<section class="main-container">
+</section>
+<section class="main-container mc__dashboard">
     <article class="sub-container sc__dashboard">
-        <h3 class="title">Managed Events</h3>
+        <h3 class="title section-title">Managed Events</h3>
         <div class="event-collection">
             {{#each createdEventsPlain as |event|}}
                 <div id="hover">
@@ -46,7 +48,7 @@
         </div>
     </article>
 </section>
-</section>
+
 <section class="modal">
 
     <article class="modal-content">

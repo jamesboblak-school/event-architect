@@ -43,11 +43,13 @@
             );
 
     --text__invert: rgb(255, 255, 255);
-    --text__main: rgb(255, 255, 255);
-    --text__title: rgb(46, 46, 46);
-    --text__section-title: rgb(255, 0, 85);
+    --text__main: #2e2e2e;
+    --text__title: #2e2e2e;
+    --text__section-title: #ffffff;
+    /* --text__section-title: rgb(255, 0, 85); */
     --text-light: white;
     --text-dark: #570057;
+    --text__logo: #ff5e00;
 
     --shadow: #ffffff2d;
     --shadow1: rgba(0, 0, 0, 0.1);
@@ -59,7 +61,7 @@
     --primary: #8880ff66;
     /* --primary: #8880ff66; CURRENT */
     /* --primary: #ada7f686; */
-    --secondary: #b989c2;
+    --secondary: #97fcffd7;
     --invert: #8880ff;
     /* --secondary: #94ffe8bf; CURRENT */
     --accent: rgb(0, 187, 56);
@@ -134,7 +136,7 @@ main {
     background-color: transparent;
     /* background-color: var(--glass-thick); */
     /* background-color: var(--primary); */
-    color: var(--text__main);
+    color: var(--text__section-title);
     padding: 0px 100px;
     /* box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.5),
                 2px 2px 10px 5px rgba(255, 255, 255, 0.2);      */
@@ -143,7 +145,7 @@ main {
 
 .nav__title {
     float: left;
-    color: var(--text__main);
+    color: var(--text__logo);
     transition: .4s ease-out;
     border-radius: 15px;
     padding: 5px 10px;
@@ -155,9 +157,9 @@ main {
 .nav__title:hover {
     color: var(--invert);
     -webkit-text-stroke: 1px var(--invert);
-    box-shadow: 0px 0px 15px 15px var(--shadow);
-    background-color: var(--secondary);
-    -webkit-text-stroke: 1px #ffffff;
+    /* box-shadow: 0px 0px 15px 15px var(--shadow);
+    background-color: var(--secondary); */
+    -webkit-text-stroke: 1px #000000;
 
     /* box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, 0.3),
     0px 0px 15px 15px rgba(255, 255, 255, 0.25);
@@ -195,7 +197,7 @@ main {
 .nav a:hover {
     cursor: pointer;
     /* background-color: var(--accent); */
-    color: var(--text__main);
+    color: var(--text__logo);
 }
 
 /* ------ CONTAINERS ----- */
@@ -256,15 +258,20 @@ main {
 }
 
 /* -------- DASHBOARD CONTAINER -------- */
+
 .mc__dashboard {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: fit-content;
+    gap: 2em;
+    justify-content: center;
 }
 
 .sc__dashboard {
     padding: 40px;
-    justify-content: center;
+    justify-content: end;
     justify-items: center;
+    
 }
 
 
@@ -273,6 +280,7 @@ main {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    
 }
 
 /* -------- HOMEPAGE CONTAINER -------- */
@@ -341,19 +349,6 @@ main {
     transition: .25s ease-in-out;
 }
 
-/* .event-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 17%;
-    border-radius: 15px 15px 0 0;
-    background-color: var(--invert2);
-    opacity: 0;
-    transition: .15s ease-in-out;
-} */
-
 .event-card:hover {
     transform: scale(105%);
     box-shadow: 0 0 10px 10px var(--shadow1),
@@ -362,55 +357,11 @@ main {
         0px 10px 30px rgba(0, 0, 0, 0.45); */
 }
 
-/* .event-card:hover::before {
-    opacity: 1;
-    transition: .15s ease-in-out;
-} */
-/* .event-card__edit {
-    position: relative;
-    background-color: var(--secondary);
-    /* border-radius: 0 0 15px 15px; */
-/* border-radius: 15px;
-    margin: 0 1rem 1rem 1rem;
-    padding: 20px;
-    max-width: 7rem;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2),
-                0 0 10px 10px rgba(0, 0, 0, 0.1);
-} */
-
-
-/* .quick-fix {
-    display: flex;
-    flex-direction: column;
-    color: var(--accent);
-    letter-spacing: 2px;
-    padding-left: 10px;
-    transition: .4s ease-in-out;
-}
-
-.quick-fix2 {
-    margin-bottom: 10px;
-} */
-
-/* .event--list{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-
-}
-.event--card{
-    display: flex;
-    flex-direction: column;
-
-} */
-
-/* -------- CONTENT -------- */
-
+/* ---------------- CONTENT ---------------- */
 .title {
     text-align: center;
     font-size: larger;
     letter-spacing: 2.5;
-    border-bottom: 1px solid var(--text__title);
     line-height: 2rem;
     color: var(--text__title)
 }
@@ -418,20 +369,8 @@ main {
 .section-title {
     font-size: 50px;
     padding-bottom: 10px;
-    color: var(--text__title);
-}
-
-.event {
-    color: var(--text__main);
-    letter-spacing: 2px;
-
-    /* border-radius: 15px; */
-    transition: .3s ease-in-out;
-}
-
-.event:hover,
-.event:focus {
-    color: var(--text__invert);
+    color: var(--text__section-title);
+    border-bottom: 1px solid var(--text__section-title);
 }
 
 .input {
@@ -458,24 +397,40 @@ main {
     opacity: 1;
 }
 
+/* -------- EVENT CONTENT -------- */
+
+.event {
+    color: var(--text__main);
+    letter-spacing: 2px;
+
+    /* border-radius: 15px; */
+    transition: .3s ease-in-out;
+}
+
+.event:hover,
+.event:focus {
+    color: var(--text__invert);
+}
+
 /* -------- DASHBOARD CONTENT ------- */
 
 .username {
-    font-size: 1.25em;
+    font-size: 1.5em;
     letter-spacing: 2.5px;
     text-transform: uppercase;
-    /* color: var(--accent); */
+    color: var(--text__logo);
     font-family: feastOfFlesh;
-
+    -webkit-text-stroke: 1px #000000;
 }
 
 .portrait {
     height: 5.5rem;
     width: 5.5rem;
-    background-color: var(--text__title);
+    background-color: var(--base);
     border-radius: 50%;
 
 }
+
 
 /* -------- BUTTONS / A-TAGS -------- */
 
@@ -538,7 +493,7 @@ main {
 .contact-btn {
     margin: 5px;
     background-color: var(--primary);
-    color: var(--text__main);
+    color: var(--secondary);
     border: none;
     padding: 5px 10px;
     border-radius: 15px;

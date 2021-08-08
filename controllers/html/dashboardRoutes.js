@@ -57,7 +57,10 @@ router.get('/:id', async (req, res) => {
 					{
 						model: Member,
 						through: MemberEvent,
-						as: 'memberevent'
+						as: 'memberevent',
+						where: {
+							id: req.params.id
+						}
 					}]
 			});
 

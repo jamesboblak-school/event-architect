@@ -1,10 +1,32 @@
-<section class="main-container">
+{{!-- <section class="main-container">
     <div id="oneline">
     <h3 class="title" id="event-title" data-id="{{id}}">{{title}}</h3>
     <button class="edit-btn">Edit</button>
     </div>
     <p class="event">{{description}}</p>
    
+</section> --}}
+
+{{!-- DENZEL --}}
+
+<section class="main-container">
+    <article class="sub-container sc__dashboard">
+        <h3 class="title">Managed Events</h3>
+        <div class="event-collection">
+            {{#each createdEventsPlain as |event|}}
+            <div>
+            <button class="edit-btn">Edit</button>
+                 <a href="http://localhost:3001/event/{{id}}">
+                    <div class="event-card__edit">
+                        <p class="event title">{{event.title}}</p>
+                        <p>{{description}}</p>
+                        
+                    </div>
+                </a>
+                </div>
+            {{/each}}
+        </div>
+    </article>
 </section>
 
 <section class="main-container">
@@ -17,6 +39,7 @@
 </section>
 
 <section class="main-container">
+    {{!-- DONT CHANGE id="detail-list" - line 50 listjs--}}
     <article id="detail-list" class="sub-container">
             <ul class="details list">
 								{{#each details}}

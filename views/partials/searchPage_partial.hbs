@@ -1,17 +1,16 @@
-<main>
-    <section class="mc--search">
+    <section class="main-container mc__auth">
     <p class="search-identifier"></p>
     <h3 class="search-title"></h3>
-        <article class="sub-container mc--auth">
+        <article class="sub-container sc__auth">
             <h3>Search User</h3>
-                <input type="text" class="password" id="memSearch" placeholder="Search">
-                <button class="submit" id="memReq">Submit</button>
+                <input type="text" class="input" id="memSearch" placeholder="Search">
+                <button class="submit-btn" id="memReq">Submit</button>
         </article>
 
-        <article class="sub-container mc--auth">
+        <article class="sub-container sc__auth">
             <h3>Search Event</h3>
-                <input type="text" class="password" id="eventSearch" placeholder="Search">
-                <button class="submit" id="eventReq">Submit</button>
+                <input type="text" class="input" id="eventSearch" placeholder="Search">
+                <button class="submit-btn" id="eventReq">Submit</button>
         </article>
 </section>
 
@@ -19,9 +18,9 @@
     <div class="circle2"></div>
     <div class="circle3"></div>
 
-<section class="mc--search quick-fix">
+<section class="main-container">
     <h1 class="title">SearchResults</h1>
-    
+    <article class="sub-container sc__auth">
         <ul class="search-results"></ul>
         {{#each members}}
         <li class="event quick-fix2">
@@ -29,10 +28,7 @@
             <button class="followers-btn">Unfollow</button>
         </li>
         {{/each}}
-    
+    </article>
 </section>
-
-
-</main>
 
 <script src="/js/search.js"></script>

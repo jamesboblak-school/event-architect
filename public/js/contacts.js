@@ -1,9 +1,9 @@
 var contactsModal = document.querySelector(".modal");
-var followerEl = document.querySelector(".followers-btn");
-var followingEl = document.querySelector(".following-btn");
+var followersEl = document.getElementById("followers-btn");
+var followingEl = document.getElementById("following-btn");
 var friendListEl = document.getElementById("friendList");
 var modalTitleEl = document.getElementById("modal-title")
-var closeEl = document.querySelector(".close");
+var closeEl = document.querySelector(".close-btn");
 
 followingEl.addEventListener("click", () => {
     console.log("entered following")
@@ -12,7 +12,7 @@ followingEl.addEventListener("click", () => {
 
 })
 
-followerEl.addEventListener("click", () => {
+followersEl.addEventListener("click", () => {
     console.log("entered follower")
     contactsModal.style.display = "block";
     modalTitleEl.innerText = "Followers"

@@ -39,25 +39,25 @@ router.get('/', async (req, res) => {
 // 2. View Profile GET
 
 // 3. View Public Event GET
-router.get('/event/:id', async (req, res) => {
-    console.log("View Public Event");
-        try {
-        const eventData = await Event.findByPk(req.params.id);
-        if (!eventData) {
-            res.status(404).json({
-                message: 'No Event with that ID found!'
-            });
-            return;
-        }
-        const eventPlain = await eventData.get({plain: true});
-        res.status(200).render('eventPage', {
-            data: eventPlain
-        });
-    } catch (err) {
-        console.log("error: " + err);
-        res.status(500).json(err);
-    }
-    });
+// router.get('/event/:id', async (req, res) => {
+//     console.log("View Public Event");
+//         try {
+//         const eventData = await Event.findByPk(req.params.id);
+//         if (!eventData) {
+//             res.status(404).json({
+//                 message: 'No Event with that ID found!'
+//             });
+//             return;
+//         }
+//         const eventPlain = await eventData.get({plain: true});
+//         res.status(200).render('eventPage', {
+//             data: eventPlain
+//         });
+//     } catch (err) {
+//         console.log("error: " + err);
+//         res.status(500).json(err);
+//     }
+//     });
 
 // 4. View Private Event GET
 

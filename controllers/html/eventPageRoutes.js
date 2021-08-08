@@ -1,18 +1,20 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
-const { Event, Message, Member } = require('../../models');
+const { Event, Message, Member, Detail } = require('../../models');
 // dont delete :)
 // GET render list of members search page upon loading url
-router.get('/id', async (req, res) => {
-    console.log("TROY",events)
+router.get('/:id', async (req, res) => {
+    // console.log("TROY",events)
 
-    // res.render('searchPage')
+		console.log('hello')
     try {
         //get all users
-        const eventData = await Event.findByBk(req.params.id, {
+        const eventData = await Event.findByPk(req.params.id, {
             include: [{
-                model: Message
-            }]
+            	model: Message
+            }, {
+							model: Detail
+						}]
 
         });
 
@@ -26,7 +28,8 @@ router.get('/id', async (req, res) => {
         // // if user logged in:
         // if (req.session.loggedIn) {
         //     //render member data to search page
-             res.render('eventPage', { event });
+				console.log(event)
+        res.render('eventPage', event);
         // }
         // //else redirect to log-in page
         // else res.redirect('login');

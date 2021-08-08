@@ -9,9 +9,12 @@ async function updateDetails(detailInfo) {
 	});
 
 	if (response.ok) {
-		const {event_id, detail_id} = await response;
-		console.log(`Update event with id ${event_id}`)
+		const {event_id, detail_id} = await response.json();
+		console.log(`Update detail with id ${detail_id} for event with id ${event_id}`)
 	}
+}
+
+async function addDetails(detailInfo) {
 
 }
 
@@ -37,59 +40,72 @@ function editListEl() {
 			//Use list.js to get the list item event_id
 			const detail_id = Number(e.target.getAttribute('id'));
 			const listItem = detailList.get('detail-id', detail_id)[0];
+			const originalText = listItem.values().content;
 		
 			//Replace the list item with an input field for the user to specify their change
 			const inputElText = `<input type=text placeholder="${listItem.values().content}" id="input-id-${detail_id}"/>`
 			listItem.values({
 				content: inputElText
 			});
+
 			const inputEl = document.getElementById(`input-id-${detail_id}`); //Grab the newly created input element
 
 			//Listen for the user submit
 			listElSubmit.addEventListener('click', async (e) => {
-				listItem.values({
-					content: inputEl.value
-				});
+				if (inputEl.value.trim().length !== 0){
+					console.log(inputEl.value.trim().length)
+					listItem.values({
+							content: inputEl.value.trim()
+					});		
 				
+					const detailInfo = {
+						event_id: listItem.values()["event-id"],
+						detail_id: listItem.values()["detail-id"],
+						content: listItem.values()["content"]
+					};
+					await updateDetails(detailInfo);
+				} else {
+					listItem.values({
+						content: originalText
+					});
+				}
+
 				listElSubmit.remove();
 				listEditBtns[i].style.display = "inline-block";
-
-				const detailInfo = {
-					event_id: listItem.values()["event-id"],
-					detail_id: listItem.values()["detail-id"],
-					content: listItem.values()["content"]
-				};
-				await updateDetails(detailInfo);
 			});
 		});
 	}
 }
 
-async function addListEl() {
+function addListEl() {
 	const event_id = document.getElementById('event-title').dataset.id;
 
 	let options = {
-		valueNames: ['detail-id', 'event-id', 'content'],
+		valueNames: ['detail-id', 'event-id', 'content', {attr:'style', name:'list-edit-btn'}],
 		item: `<li class="list-el">
 							<span class="content"></span>
 							<span class="detail-id" style="display: none;"></span>
 							<span class="event-id" style="display: none;"></span>
-						</li>
-						<button class="list-edit-btn">Edit</button>`
+							<button class="list-edit-btn" id="${event_id}" style>Edit</button>
+					  </li>`
 	};
 
+	
 	const detailList = new List('detail-list', options);
-	const detail_id = detailList.items.length + 1;
 
 	const addBtn = document.getElementsByClassName('add-btn');
 
 	addBtn[0].addEventListener('click', (e) => {
 		addBtn[0].style.display = "none"
+		const detail_id = detailList.items.length + 1;
 		detailList.add({
 			"detail-id": detail_id,
 			"event-id": event_id,
+			"list-edit-btn": "display: none",
 			content: `<input type=text placeholder="Enter detail" id="add-input-id-${detail_id}"/>`
 		});
+		
+		const detailItem = detailList.get('detail-id', detail_id)[0];
 
 		const parent = addBtn[0].parentElement;
 
@@ -101,8 +117,18 @@ async function addListEl() {
 		listElSubmit.addEventListener('click', (e) => {
 			const content = document.getElementById(`add-input-id-${detail_id}`);
 
-			console.log(content)
-		})
+			if (content.value.trim().length !== 0) {
+				detailItem.values({
+					content: content.value.trim(),					
+					"list-edit-btn": "display: inline-block"
+				});
+			} else {
+				detailList.remove('detail-id', detail_id)
+			}
+
+			listElSubmit.remove();
+			addBtn[0].style.display = "inline-block";
+		});
 	})		
 
 }

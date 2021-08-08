@@ -1,6 +1,6 @@
 const List = require('list.js');
 
-async function updateDetails(detailInfo) {
+async function updateDetail(detailInfo) {
 
 	const response = await fetch(`/api/detail`, {
 		method: 'PUT',
@@ -14,8 +14,23 @@ async function updateDetails(detailInfo) {
 	}
 }
 
-async function addDetails(detailInfo) {
+async function addDetail(detailInfo) {
 
+	const response = await fetch('/api/detail', {
+		method: 'POST',
+		body: JSON.stringify(detailInfo),
+		headers: {'Content-Type': 'application/json'}
+	});
+
+	if (response.ok) {
+		console.log('Added new detail')
+	}
+}
+
+async function deleteDetail(detail_id) {
+	const response = await fetch(`/api/detail/${detail_id}`, {
+		method: 'DELETE',
+	})
 }
 
 function editListEl() {
@@ -63,7 +78,7 @@ function editListEl() {
 						detail_id: listItem.values()["detail-id"],
 						content: listItem.values()["content"]
 					};
-					await updateDetails(detailInfo);
+					await updateDetail(detailInfo);
 				} else {
 					listItem.values({
 						content: originalText
@@ -114,7 +129,7 @@ function addListEl() {
 		listElSubmit.innerHTML = "submit";
 		parent.appendChild(listElSubmit);
 
-		listElSubmit.addEventListener('click', (e) => {
+		listElSubmit.addEventListener('click', async (e) => {
 			const content = document.getElementById(`add-input-id-${detail_id}`);
 
 			if (content.value.trim().length !== 0) {
@@ -122,6 +137,14 @@ function addListEl() {
 					content: content.value.trim(),					
 					"list-edit-btn": "display: inline-block"
 				});
+
+				const detailInfo = {
+					time: '2021-06-12 06:06:30',
+					content: content.value.trim(),
+					event_id: event_id
+				};
+
+				await addDetail(detailInfo);
 			} else {
 				detailList.remove('detail-id', detail_id)
 			}
@@ -130,8 +153,29 @@ function addListEl() {
 			addBtn[0].style.display = "inline-block";
 		});
 	})		
+}
 
+function deleteListEl() {
+	let options = {		
+		valueNames: ['detail-id']
+	};
+
+	let detailList = new List('detail-list', options);
+
+	const removeBtns = document.getElementsByClassName('list-remove-btn');
+
+	for (let i=0; i < removeBtns.length; i++) {
+		removeBtns[i].addEventListener('click', async (e) => {
+			const detail_id = Number(e.target.getAttribute('id'));
+
+			detailList.remove('detail-id', detail_id);
+
+			console.log(detail_id)
+			await deleteDetail(detail_id);
+		})
+	}
 }
 
 editListEl();
 addListEl();
+deleteListEl();

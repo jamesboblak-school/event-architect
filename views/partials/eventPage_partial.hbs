@@ -42,6 +42,7 @@
     {{!-- DONT CHANGE id="detail-list" - line 50 listjs--}}
     <article id="detail-list" class="sub-container">
             <ul class="details list">
+								{{#if (canModify loggedIn isAuthor)}}
 								{{#each details}}
                 <div id="oneline">
 									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
@@ -54,10 +55,26 @@
 									</li>
 								</div>
 								{{/each}}
+								{{else}}
+								{{#each details}}
+                <div id="oneline">
+									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
+									<li class="list-el">
+										<span class="content">{{content}}</span>
+										<span class="detail-id" style="display: none;">{{id}}</span>
+										<span class="event-id" style="display: none;">{{event_id}}</span>
+									</li>
+								</div>
+								{{/each}}
+								{{/if}}
 				    </ul>
+						{{#if (canModify loggedIn isAuthor)}}
 						<button class="add-btn">Add Detail</button>
+						{{/if}}
     </article>
 </section>
 </main>
 
+{{#if (canModify loggedIn isAuthor)}}
 <script src="../js/listjs.js"></script>
+{{/if}}

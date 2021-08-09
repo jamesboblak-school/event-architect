@@ -1,79 +1,72 @@
-<section class="main-container">
+{{!-- <section class="main-container">
     <div id="oneline">
-    <h3 class="title" id="event-title" data-id="{{id}}">{{title}}</h3>
-    <button class="edit-btn">Edit</button>
+        <h3 class="title" id="event-title" data-id="{{id}}">{{title}}</h3>
+        <button class="edit-btn">Edit</button>
     </div>
     <p class="event">{{description}}</p>
-   
-</section>
+
+</section> --}}
 
 {{!-- DENZEL --}}
 
-<section class="main-container">
-    <article class="sub-container sc__dashboard">
-        <h3 class="title section-title">Managed Events</h3>
+<section class="main-container mc__event">
+    <article class="sub-container sc__dashboard top">
+        <h3 class="title section-title" id="event-title" data-id="{{id}}">{{title}}</h3>
         <div class="event-collection">
-            {{#each event}}
-            <div>
-            <button class="edit-btn">Edit</button>
-                 <a href="http://localhost:3001/event/{{id}}">
-                    <div class="event-card__edit">
-                        <p class="event title">{{event.title}}</p>
-                        <p>{{event.description}}</p>
-                        
-                    </div>
-                </a>
+            <p>{{description}}</p>
+        </div>
+    </article>
+
+    <article class="sub-container sc__event">
+        <div class="message-box">
+            <textarea class="sent-msg format__message-received">message here{{msg}}</textarea>
+        </div>
+        <input class="msg" type="text" placeholder="Send a message">
+        <button class="submit-btn">Send</button>
+        </input>
+    </article>
+
+    <article class="sub-container sc__event bottom">
+        {{!-- DONT CHANGE id="detail-list" - line 50 listjs--}}
+        <div id="detail-list" class="sub-container">
+            <ul class="details list">
+                {{#if (canModify loggedIn isAuthor)}}
+                {{#each details}}
+                <div id="oneline">
+                    {{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
+
+                    <li class="list-el format__details-manage">
+                        <div>
+                            <span class="content">{{content}}</span>
+                            <span class="detail-id" style="display: none;">{{id}}</span>
+                            <span class="event-id" style="display: none;">{{event_id}}</span>
+                        </div>
+                        <div>
+                            <button class="list-edit-btn" id="{{id}}">Edit</button>
+                            <button class="list-remove-btn" id="{{id}}">Remove</button>
+                        </div>
+                    </li>
                 </div>
-            {{/each}}
+                {{/each}}
+                {{else}}
+                {{#each details}}
+                <div id="oneline format__details-join">
+                    {{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
+                    <li class="list-el">
+                        <span class="content">{{content}}</span>
+                        <span class="detail-id" style="display: none;">{{id}}</span>
+                        <span class="event-id" style="display: none;">{{event_id}}</span>
+                    </li>
+                </div>
+                {{/each}}
+                {{/if}}
+            </ul>
+            {{#if (canModify loggedIn isAuthor)}}
+            <button class="add-btn">Add Detail</button>
+            {{/if}}
         </div>
     </article>
 </section>
-
-<section class="main-container">
-    <article class="sub-container">
-        <p class="sent-msg">message here{{msg}}</p>
-    </article>
-    <input class="msg" type="text" placeholder="Send a message">
-        <button class="submit-btn">Send</button>
-    </input>
-</section>
-
-<section class="main-container">
-    {{!-- DONT CHANGE id="detail-list" - line 50 listjs--}}
-    <article id="detail-list" class="sub-container">
-            <ul class="details list">
-								{{#if (canModify loggedIn isAuthor)}}
-								{{#each details}}
-                <div id="oneline">
-									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
-									<li class="list-el">
-										<span class="content">{{content}}</span>
-										<span class="detail-id" style="display: none;">{{id}}</span>
-										<span class="event-id" style="display: none;">{{event_id}}</span>
-										<button class="list-edit-btn" id="{{id}}">Edit</button>
-										<button class="list-remove-btn" id="{{id}}">Remove</button>
-									</li>
-								</div>
-								{{/each}}
-								{{else}}
-								{{#each details}}
-                <div id="oneline">
-									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
-									<li class="list-el">
-										<span class="content">{{content}}</span>
-										<span class="detail-id" style="display: none;">{{id}}</span>
-										<span class="event-id" style="display: none;">{{event_id}}</span>
-									</li>
-								</div>
-								{{/each}}
-								{{/if}}
-				    </ul>
-						{{#if (canModify loggedIn isAuthor)}}
-						<button class="add-btn">Add Detail</button>
-						{{/if}}
-    </article>
-</section>
-</main>
 
 {{#if (canModify loggedIn isAuthor)}}
 <script src="../js/listjs.js"></script>

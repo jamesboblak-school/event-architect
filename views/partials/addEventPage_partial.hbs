@@ -1,0 +1,16 @@
+<section class="main-container  mc__auth">
+    <article class="sub-container sc__auth">
+      <h3 class="title" id="create-event" data-userId="{{id}}">Create Event</h3>
+
+		 	<form id="create-event-form">
+			  <label for="event-title">Event Title</label><br>
+				<input type="text" class="input" id="event-title" name="event-title" placeholder="Event Title"><br>
+				<label for="event-descr">Event Description</label><br>
+				<input type="text" class="input" id="event-descr" name="event-descr" placeholder="Event Description"><br>
+				<input type="checkbox" id="isPrivate" name="isPrivate">
+				<label for="isPrivate"> Private Event?</label><br>
+   	    <button type="submit" id="submit-btn" class="submit-btn">Create</button>
+			</form>
+</article>
+
+<script src="js/addEvent.js"></script>

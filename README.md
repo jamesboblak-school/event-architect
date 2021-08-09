@@ -5,9 +5,7 @@
 [Open](https://dmartin4820.github.io/event-architect/) <strong>Event Architect</strong>:
 <code>[https://dmartin4820.github.io/event-architect/](https://dmartin4820.github.io/event-architect/)</code>
 
-<!-- ![Event Architect demonstration gif](./assets/gifs/e-a_demo.gif) -->
-
-![Event Architect demonstration gif](./assets/images/temp_screenshot.png)
+![Event Architect demonstration gif](./assets/gifs/e-a_demo.gif)
 
 ## Table of Contents
 
@@ -31,10 +29,12 @@ Simply point your browser to:
 
 ## Usage 
 
-* Event Architect will soon leap instantly to a new Member's aid by offering a live, local events feed from the API at TicketMaster.com.
+* Event Architect will soon add to a new Member's aid by offering a live, local events feed from the API at TicketMaster.com.
 * Following an event allows you to create a new party on your Member Dashboard.
+* Search using (List.js)[https://listjs.com/] and (Browserify)[https://browserify.org/]. Browserify lets you require('modules') in the browser by bundling up all of your dependencies.
 * Invite attendees to the Event Planning Page and they can join in adding details to help organize your party.
-* Follow other Members and join them to organize future Event-going parties.  Your Member Dashboard stores all your Events, and all your contacts (Members you are following, and those who are following you).
+* Follow other Members and join them to organize future Event-going parties.
+* Your Member Dashboard stores all your Events, and all your contacts (Members you are following, and those who are following you).
 * Read and post Details to the event pages you are following.
 * Chat live soon with your Event Architect Contacts through your own private Socket.io channel!
 * Acces all information quicky and easily with the aid of List.js functionality, including auto-complete, and elastic-serch.
@@ -42,8 +42,8 @@ Simply point your browser to:
 
 ## Example case:
 ### Surprise 🎂 Birthday Party at The Colliseum
-<details><summary><strong>Emma's birthday is coming up!!!</strong></summary>
-She <em>hates</em> birthdays AND surprises. So, a big surpirise party it is! She loves big rock shows, and I want to surprise her by having ten of our closest friends and family meet us in our seats at a local show.
+<details><summary><strong>Freddie's first birthday is coming up!!!</strong></summary>
+He's <em>never had</em> a birthday. So, a big surpirise party it is! He loves rock music, and I want to surprise her by having ten of our closest friends and family meet us in our seats.
 
 <strong>Now to organize this <em>private party</em> at a <em>public event!</em></strong>
 
@@ -51,11 +51,11 @@ She <em>hates</em> birthdays AND surprises. So, a big surpirise party it is! She
 I point my browser to the [Event Architect](https://dmartin4820.github.io/event-architect/) website and make a login:
 ![Login gif](./assets/gifs/e-a_make-a-login.gif)
 
-Now I need to find a local rock show for the weekend of my wife's birthday.  A quick query of the TicketMaster API reveals that Queen with Adam Lambert is playing at the Colliseum!  Her favorite band ever!!
-![Search Public Events gif](./assets/gifs/e-a_search-events.gif)
+Now I need to find a local rock show for the weekend of my dog's birthday.  A quick query of the TicketMaster API reveals that Queen with Adam Lambert is playing at the Colliseum!  Her favorite band ever!!  Then we're going to the beach . . .
+![Search Public Events gif](./assets/images/e-a_ticketmaster.png)
 
-I follow the event:
-![Follow Event gif](./assets/gifs/e-a_follow-event.gif)
+I create the event:
+![Ticketmaster image](./assets/gifs/e-a_create-event.gif)
 
 From my Member Dashboard, I can add the first detail cards to the event:
 * Shhhhh Surprise Party!!
@@ -64,19 +64,16 @@ From my Member Dashboard, I can add the first detail cards to the event:
 * Park in the North Lot
 * Enter from the North (we'll park and enter from the South Lot)
 * Shhhhh <strong>SURPRISE</strong> Party!!!!
+* Suntan Lotion!
 ![Add Details gif](./assets/gifs/e-a_add-details.gif)
 
-Search for friends:
-![Search for Friends](./assets/gifs/e-a_search-friend.gif)
+Make a (List.js)[https://listjs.com/] and (Browserify)[https://browserify.org/] assisted earch for friends, then let's follow our friends so they can view and contribute to our surprise party planning:
+![Follow Friends gif](./assets/gifs/e-a_search-friend.gif)
 
-Let's follow our friends, so they can view and contribute to our surprise party planning:
-![Follow Friends gif](./assets/gifs/e-a_follow-friend.gif)
+We will soon be able to privately chat live with other members through Socket.io!
 
-We can also privately chat live through Socket.io:
-![Private Chat gif](./assets/gifs/e-a_pravite-chat.gif)
-
-<strong>Surprise</strong> - no one leaked our secret plans!!! Let's see how it all came together on the Event Page by the Day of the show:
-![Party Ready!](./assets/gifs.e-a_party-ready.gif)</details>
+<strong>Surprise</strong> - no one leaked our secret plans!!! Let's look at the parties we have coming up:
+![Parties coming up image](./assets/gifs/e-a_party-ready.gif)</details>
 
 ## Credits
 

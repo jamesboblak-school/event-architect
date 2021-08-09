@@ -11,7 +11,7 @@
 
 <section class="main-container mc__event">
     <article class="sub-container sc__dashboard top">
-        <h3 class="title section-title" id="event-title" data-id="{{id}}">{{title}}</h3>
+        <h3 class="title section-title" id="event-title" data-id="{{event_id}}">{{title}}</h3>
         <div class="event-collection">
             <p>{{description}}</p>
         </div>
@@ -30,6 +30,21 @@
         {{!-- DONT CHANGE id="detail-list" - line 50 listjs--}}
         <div id="detail-list" class="sub-container">
             <ul class="details list">
+							 <div id="oneline">
+                    {{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
+
+                    <li class="list-el format__details-manage">
+                        <div>
+                            <span class="content" style="display: none;"></span>
+                            <span class="detail-id" style="display: none;"></span>
+                            <span class="event-id" style="display: none;"></span>
+                        </div>
+                        <div>
+                            <span class="list-edit-btn" id="" style="display: none;">Edit</button>
+                            <span class="list-remove-btn" id="" style="display: none;">Remove</button>
+                        </div>
+                    </li>
+                </div>
                 {{#if (canModify loggedIn isAuthor)}}
                 {{#each details}}
                 <div id="oneline">

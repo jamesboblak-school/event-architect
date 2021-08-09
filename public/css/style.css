@@ -69,9 +69,10 @@ font-family: 'Open Sans', sans-serif;
     --secondary: #97fcffd7;
     --invert: #8880ff;
     /* --secondary: #94ffe8bf; CURRENT */
-    --accent: rgb(0, 187, 56);
-    --accentO: #ff9d00;
-    --invert2: #ffa33a;
+    /* --accent: rgb(0, 187, 56);
+    --accentO: #ff9d00; */
+    
+  
 
 
     --base: white;
@@ -85,7 +86,40 @@ font-family: 'Open Sans', sans-serif;
             #b600b6,
             #b600b6); */
     /* MAIN GRADIENT */
-    --invert-gradient: linear-gradient(45deg,
+
+
+    --add-color: #00fb3f;
+    --add-gradient: linear-gradient(45deg,
+    #00fb3f,
+    #00fb3f,
+    #5aff83,
+    #92ffad,
+    #53ff7e,
+    #00fb3f,
+    #00fb3f);
+
+    --delete-color: #ff3a3a;
+    --delete-gradient: linear-gradient(45deg,
+    #ff3a3a,
+    #ff3a3a,
+    #ff6f6f,
+    #ffb9b9,
+    #ff6f6f,
+    #ff3a3a,
+    #ff3a3a);
+
+    --edit-color: #ffa33a;
+    --edit-gradient: linear-gradient(45deg,
+    #ffa33a,
+    #ffa33a,
+    #ffbe73,
+    #ffdeb8,
+    #ffbe73,
+    #ffa33a,
+    #ffa33a);
+
+    --submit-color: #3a75ff;
+    --submit-gradient: linear-gradient(45deg,
     #0004ff,
     #0004ff,
     #3a3dff,
@@ -99,7 +133,7 @@ font-family: 'Open Sans', sans-serif;
 
     --circle: #ffffff1a;
 
-    
+    font-size: 20px;
 
 }
 
@@ -159,6 +193,7 @@ main {
     letter-spacing: 2px;
     font-family: feastOfFlesh;
     -webkit-text-stroke: 1px #000000;
+    font-size: 40px;
 }
 
 .nav__title:hover {
@@ -247,6 +282,12 @@ main {
     display: grid;
     grid-template-areas: "title""input""submit";
     background-color: var(--secondary);
+    justify-items: center;
+}
+
+#signin-form {
+    justify-content: center;
+    justify-items: center;
 }
 
 #title-auth {
@@ -337,7 +378,7 @@ main {
 
 .sc__event {
     background-color: var(--secondary);
-    padding: 0 20px;
+    padding: 20px;
     margin: 0 20px;
 }
 
@@ -437,8 +478,9 @@ main {
 }
 
 .input::placeholder {
+    padding-left: 10px;
     letter-spacing: 1px;
-    color: var(--text__invert);
+    color: rgb(77, 77, 77);
     opacity: .5;
 }
 
@@ -483,13 +525,11 @@ main {
 
 
 /* -------- BUTTONS / A-TAGS -------- */
-
+.add-btn,
+.delete-btn,
+.edit-btn,
 .submit-btn {
-    background-image: var(--invert-gradient);
-    background-size: 400%;
-    background-position: left;
-    box-shadow: inset 0 0 15px 10px #5457ff;
-    color: var(--text__main);
+    color: var(--text-light);
     border: none;
     margin: 10px;
     padding: 7px 10px;
@@ -501,39 +541,59 @@ main {
         box-shadow .3s ease-in-out;
 }
 
+.add-btn{
+    background-image: var(--add-gradient);
+    background-size: 400%;
+    background-position: left;
+    box-shadow: inset 0 0 15px 10px var(--add-color);
+}
+.delete-btn{
+    background-image: var(--delete-gradient);
+    background-size: 400%;
+    background-position: left;
+    box-shadow: inset 0 0 15px 10px var(--delete-color);
+}
+.edit-btn{
+    background-image: var(--edit-gradient);
+    background-size: 400%;
+    background-position: left;
+    box-shadow: inset 0 0 15px 10px var(--edit-color);
+}
+.submit-btn {
+    background-image: var(--submit-gradient);
+    background-size: 400%;
+    background-position: left;
+    box-shadow: inset 0 0 15px 10px var(--submit-color);
+}
 
-
-.submit-btn:hover,
-.submit-btn:focus {
+.add-btn:hover,
+.delete-btn:hover,
+.edit-btn:hover,
+.submit-btn:hover {
     cursor: pointer;
     background-position: right;
-    box-shadow: inset 0 0 15px 10px #5457ff,
-        0 0 0 2px #5457ff;
-
 }
 
 
-.edit-btn {
+.edit-tag {
     position: absolute;
     top: 0;
     left: -16px;
+    width: 100%;
     z-index: 1;
     margin: 0 1rem;
-    padding: 5px 59.5px;
-    background-color: var(--invert2);
+    padding: 5px 60px;
+    background-color: var(--edit-color);
     color: var(--text__main);
     border: none;
     border-radius: 15px 15px 0 0;
     font-weight: bold;
     letter-spacing: 2px;
     transition: .25s;
-    /* box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2),
-                0 0 10px 10px rgba(0, 0, 0, 0.1); */
-
 }
 
-.edit-btn:hover,
-.edit-btn:focus {
+.edit-tag:hover,
+.edit-tag:focus {
     cursor: pointer;
     background-color: var(--invert);
     color: var(--text__main);

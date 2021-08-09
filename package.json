@@ -8,8 +8,8 @@
     "start": "node server.js",
     "watch": "nodemon server.js",
     "seed": "node ./seeds/index.js",
-    "prewatch": "echo 'running browserify' && browserify public/js/list.js -o public/js/listjs.js && echo 'can now start server'",
-    "build": "echo 'setting up' && browserify public/js/list.js -o public/js/listjs.js && node ./seeds/index.js"
+    "prewatch": "echo 'setting up' && browserify public/js/list.js -o public/js/listjs.js && browserify public/js/search.js -o public/js/searchlistjs.js",
+    "build": "echo 'setting up' && browserify public/js/list.js -o public/js/listjs.js && browserify public/js/search.js -o public/js/searchlistjs.js && node ./seeds/index.js"
   },
   "keywords": [],
   "author": "",

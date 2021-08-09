@@ -31,12 +31,12 @@ Simply point your browser to:
 
 ## Usage 
 
-* Event Architect leaps instantly to a new Member's aid by offering a live, local events feed from the API at TicketMaster.com.
+* Event Architect will soon leap instantly to a new Member's aid by offering a live, local events feed from the API at TicketMaster.com.
 * Following an event allows you to create a new party on your Member Dashboard.
-* Invite attendees to the Event Planning Page adn they can join in adding details to help organize your party.
+* Invite attendees to the Event Planning Page and they can join in adding details to help organize your party.
 * Follow other Members and join them to organize future Event-going parties.  Your Member Dashboard stores all your Events, and all your contacts (Members you are following, and those who are following you).
 * Read and post Details to the event pages you are following.
-* Chat live with your Event Architect Contacts through your own private Socket.io channel!
+* Chat live soon with your Event Architect Contacts through your own private Socket.io channel!
 * Acces all information quicky and easily with the aid of List.js functionality, including auto-complete, and elastic-serch.
 * Log in and out of your Member Account for full access and functionality to all of your Event Architect Events through your Memeber Dashboard from any internet-enabled device anywhere.
 
@@ -80,7 +80,7 @@ We can also privately chat live through Socket.io:
 
 ## Credits
 
-<strong>Denzal Martin: </strong>[email](dom4822@yahoo.com.) | [portfolio](https://github.com/dmartin4820)
+<strong>Denzal Martin: </strong>[email](dom4822@yahoo.com) | [portfolio](https://github.com/dmartin4820)
 Concept, Design, Backend, HTML, JS, Socket.io, [List.js](https://listjs.com/) 
 
 <strong>Troy Johnson: </strong>[email](tnj8510@gmail.com) | [portfolio]()

@@ -21,7 +21,7 @@ app.set('view engine', '.hbs');
 const PORT = process.env.PORT || 3001;
 
 const sess = {
-	secret: process.env.sessPw,
+	secret: 'secret',
 	cookie: {maxAge: (30 * 60 * 1000)}, //30 minutes = 1800000 ms
 	resave: false,
 	saveUnitialized: true,

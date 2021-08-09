@@ -35,7 +35,7 @@
         <h3 class="title section-title">Managed Events</h3>
         <div class="event-collection">
             {{#each createdEventsPlain as |event|}}
-                <div id="hover">
+                {{!-- <div id="hover"> --}}
                     <a href="http://localhost:3001/event/{{id}}">
                         <div class="event-card">
                             <button class="edit-btn">Edit</button>
@@ -43,7 +43,7 @@
                             <p>{{description}}</p>    
                         </div>
                     </a>
-                </div>
+                {{!-- </div> --}}
             {{/each}}
         </div>
     </article>

@@ -1,7 +1,12 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
 const { Event, Message, Member, Detail } = require('../../models');
-// dont delete :)
+
+router.get('/addEvent', (req, res) => {
+  if (req.session.loggedIn) res.render('addEvent')
+  res.redirect('/')	
+});
+
 // GET render list of members search page upon loading url
 router.get('/:id', async (req, res) => {
     // console.log("TROY",events)
@@ -29,6 +34,7 @@ router.get('/:id', async (req, res) => {
         const event = eventData.get({ plain: true });
 				event.loggedIn = req.session.loggedIn;
 				event.isAuthor = req.session.userId === event.author_id;
+        // event.userId = req.session.userId;
         // // if user logged in:
         // if (req.session.loggedIn) {
         //     //render member data to search page

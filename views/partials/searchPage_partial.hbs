@@ -1,34 +1,37 @@
     <section class="main-container mc__auth">
     <p class="search-identifier"></p>
     <h3 class="search-title"></h3>
-        <article class="sub-container sc__auth">
+        <article id="member-container" class="sub-container sc__auth">
             <h3>Search User</h3>
-                <input type="text" class="input" id="memSearch" placeholder="Search">
-                <button class="submit-btn" id="memReq">Submit</button>
+            <input type="search" class="search input" id="memSearch" placeholder="Search">
+            {{!-- <button class="submit-btn" id="memReq">Submit</button> --}}
+						<ul class="list search-results">
+  	     			{{#each members}}
+  	     			<li class="event quick-fix2">
+							{{!-- <p class="membername">{{username}}</p> --}}
+  	     			<a class="membername" href="/dashboard/{{id}}">{{username}}</a>
+  	     	    {{!-- <button class="followers-btn">Unfollow</button> --}}
+  	     			</li>
+  	     			{{/each}}
+						</ul>
         </article>
 
-        <article class="sub-container sc__auth">
+        <article id="event-container" class="sub-container sc__auth">
             <h3>Search Event</h3>
-                <input type="text" class="input" id="eventSearch" placeholder="Search">
-                <button class="submit-btn" id="eventReq">Submit</button>
+            <input type="search" class="search input" id="eventSearch" placeholder="Search">
+            {{!-- <button class="submit-btn" id="eventReq">Submit</button> --}}
+						<ul class="list search-results">
+ 	      			{{#each events}}
+ 	      			<li class="event quick-fix2">
+ 	      			<a class="eventtitle" href="">{{title}}</a>
+ 	      			</li>
+							{{/each}}
+						</ul>
         </article>
 </section>
 
 <div class="circle1"></div>
-    <div class="circle2"></div>
-    <div class="circle3"></div>
+<div class="circle2"></div>
+<div class="circle3"></div>
 
-<section class="main-container">
-    <h1 class="title">SearchResults</h1>
-    <article class="sub-container sc__auth">
-        <ul class="search-results"></ul>
-        {{#each members}}
-        <li class="event quick-fix2">
-        <a href="/dashboard/{{id}}">{{username}}</a>
-            <button class="followers-btn">Unfollow</button>
-        </li>
-        {{/each}}
-    </article>
-</section>
-
-<script src="/js/search.js"></script>
+<script src="js/searchlistjs.js"></script>

@@ -4,6 +4,12 @@
 }
 
 * {
+
+    font-family: 'Comic Neue', cursive;
+font-family: 'Major Mono Display', monospace;
+font-family: 'Open Sans', sans-serif;
+
+
     /* font-family: 'MonteCarlo', cursive; */
 
     /* --gradient: linear-gradient(
@@ -32,7 +38,6 @@
    ); */
     --topGradient: #97fcff;
     --mainGradient: #2c0072;
-    --blue: #2648a8;
 
     --gradient: linear-gradient(
         var(--topGradient),
@@ -93,6 +98,8 @@
     --glass__thick: #aca7f669;
 
     --circle: #ffffff1a;
+
+    
 
 }
 
@@ -317,6 +324,49 @@ main {
 }
 
 /* -------- EVENT CONTAINER -------- */
+
+.mc__event {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr;
+    justify-content: center;
+    padding:  0 50px 50px 50px;
+    
+}
+
+.top { grid-column: span 2}
+
+.sc__event {
+    background-color: var(--secondary);
+    padding: 0 20px;
+    margin: 0 20px;
+}
+
+.message-box {
+    background-color: rgb(182, 250, 255);
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.format__message-recieved {
+    justify-content: start;
+    justify-self: stretch;
+}
+
+.format__message-sent {
+    justify-content: end;
+}
+
+.format__details-join {
+    justify-content: start;
+}
+
+.format__details-manage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+/* -------- EVENT COLLECTION CARDS -------- */
 .event-collection {
     display: flex;
     flex-direction: row;

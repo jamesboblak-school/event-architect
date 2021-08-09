@@ -1,16 +1,15 @@
-<main>
     <section class="main-container mc--homepage">
-    <h1 class="title large">Events</h1>
-    <article class="">
-{{#each events}}
-<a href="event/{{id}}" class="event"><h3>{{id}}. {{title}}</h3> &nbsp <h3>{{description}}</h3></a>
-{{/each}}
-
-    </article>
-
+        <h1 class="title section-title">Events</h1>
+        <article class="sub-container sc__homepage">
+        <div class="event-collection">
+        {{#each events}}
+            <a href="http://localhost:3001/event/{{id}}">
+                <div class="event-card">
+                    <h3 class="title">{{title}}</h3>
+                    <h3>{{description}}</h3>
+                </div>
+            </a>
+        {{/each}}
+        </div>
+        </article>
 </section>
-    <div class="circle1"></div>
-    <div class="circle2"></div>
-    <div class="circle3"></div>
-    {{!-- <div class="circle4"></div> --}}
-</main>

@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 	res.render('auth', {
 		loggedIn: req.session.loggedIn
 	});
+	
 });
 
 router.post('/', async (req, res) => {
@@ -41,7 +42,9 @@ router.post('/', async (req, res) => {
 		 	res.status(200).json({
 				 username: req.session.username,
 				 userId: req.session.userId
+				 
 			 })
+			 
 		});
 
 

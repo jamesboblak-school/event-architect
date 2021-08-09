@@ -15,7 +15,7 @@
             <h3 class="title section-title">My Events</h3>
             <div class="event-collection">
                 {{#each createdEventsPlain as |event|}}
-                <a href="http://localhost:3001/event/{{id}}">
+                <a href="/event/{{id}}">
                     <div class="event-card">
                         <button class="edit-tag">Edit</button>
                         <p class="event title">{{event.title}} </p>
@@ -32,7 +32,7 @@
             <h3 class="title section-title">Attending Events</h3>
             <div class="event-collection">
                 {{#each attendingEventsPlain as |event|}}
-                <a href="http://localhost:3001/event/{{id}}">
+                <a href="/event/{{id}}">
                     <div class="event-card">
                         <p class="title">{{event.title}}</p>
                         <p>{{description}}</p>

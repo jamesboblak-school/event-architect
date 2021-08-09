@@ -34,6 +34,8 @@ router.get('/:id', async (req, res) => {
         const event = eventData.get({ plain: true });
 				event.loggedIn = req.session.loggedIn;
 				event.isAuthor = req.session.userId === event.author_id;
+				event.event_id = event.id;
+				event.id = req.session.userId;
         // event.userId = req.session.userId;
         // // if user logged in:
         // if (req.session.loggedIn) {

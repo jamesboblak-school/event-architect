@@ -3,4 +3,3 @@ node_modules/
 .env
 .vscode/
 public/js/*listjs.js
-package-lock.json

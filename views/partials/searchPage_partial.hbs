@@ -1,9 +1,12 @@
-    <section class="main-container mc__auth">
+    <section class="main-container mc__search">
+		
     <p class="search-identifier"></p>
-    <h3 class="search-title"></h3>
+    <h3 class="search-title section-title">Search</h3>
+	<article class="sc__search">
+	{{#if loggedIn}}
         <article id="member-container" class="sub-container sc__auth">
-            <h3>Search User</h3>
-            <input type="search" class="search input" id="memSearch" placeholder="Search">
+            <h3 class="title"></h3>
+            <input type="search" class="search input" id="memSearch" placeholder="Search Members">
             {{!-- <button class="submit-btn" id="memReq">Submit</button> --}}
 						<ul class="list search-results">
   	     			{{#each members}}
@@ -15,10 +18,10 @@
   	     			{{/each}}
 						</ul>
         </article>
-
+	{{/if}}
         <article id="event-container" class="sub-container sc__auth">
-            <h3>Search Event</h3>
-            <input type="search" class="search input" id="eventSearch" placeholder="Search">
+            <h3 class="title" ></h3>
+            <input type="search" class="search input" id="eventSearch" placeholder="Search Events">
             {{!-- <button class="submit-btn" id="eventReq">Submit</button> --}}
 						<ul class="list search-results">
  	      			{{#each events}}
@@ -28,6 +31,7 @@
 							{{/each}}
 						</ul>
         </article>
+		</article>
 </section>
 
 <div class="circle1"></div>

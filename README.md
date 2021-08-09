@@ -43,15 +43,15 @@ Simply point your browser to:
 ## Example case:
 ### Surprise 🎂 Birthday Party at The Colliseum
 <details><summary><strong>Freddie's first birthday is coming up!!!</strong></summary>
-He's <em>never had</em> a birthday. So, a big surpirise party it is! He loves rock music, and I want to surprise her by having ten of our closest friends and family meet us in our seats.
+He's <em>never had</em> a birthday. So, a big surpirise party it is! He loves rock music, and I want to surprise him by having ten of our closest friends and family meet us in our seats.
 
 <strong>Now to organize this <em>private party</em> at a <em>public event!</em></strong>
 
 #### <strong>Event Architect</strong> to the rescue!
-I point my browser to the [Event Architect](https://dmartin4820.github.io/event-architect/) website and make a login:
+First, I point my browser to the [Event Architect](https://dmartin4820.github.io/event-architect/) website and make a login:
 ![Login gif](./assets/gifs/e-a_make-a-login.gif)
 
-Now I need to find a local rock show for the weekend of my dog's birthday.  A quick query of the TicketMaster API reveals that Queen with Adam Lambert is playing at the Colliseum!  Her favorite band ever!!  Then we're going to the beach . . .
+Now I need to find a local rock show for the weekend of my dog's birthday.  A quick query of the TicketMaster API reveals that Queen with Adam Lambert is playing at the Colliseum!  His favorite band ever!!  Then we're going to the beach . . .
 ![Search Public Events gif](./assets/images/e-a_ticketmaster.png)
 
 I create the event:
@@ -61,8 +61,7 @@ From my Member Dashboard, I can add the first detail cards to the event:
 * Shhhhh Surprise Party!!
 * date and time
 * venue, tickets in will Call
-* Park in the North Lot
-* Enter from the North (we'll park and enter from the South Lot)
+* Park in and enter from the North Lot (we'll park and enter from the South Lot)
 * Shhhhh <strong>SURPRISE</strong> Party!!!!
 * Suntan Lotion!
 ![Add Details gif](./assets/gifs/e-a_add-details.gif)
@@ -84,8 +83,7 @@ Concept, Design, Backend, HTML, JS, Socket.io, [List.js](https://listjs.com/)
 Concept, Design, Handlebars, HTML, JS, CSS, API and HTML routes
 
 <strong>James Boblak: </strong>[email](james@skepticalrecords.com) | [portfolio](https://github.com/jamesboblak)
-Concept, API and HTML routes, <span>this readme.md</span>
-
+Concept, Design, API and HTML routes, readme, documentation
 
 [Full Stack Developer Bootcamp](https://bootcamp.berkeley.edu/coding/)
 UC Berkeley Extension, Summer 2021
@@ -95,10 +93,8 @@ developer.mozilla.org
 YouTube.com
 
 ## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
-
 ![License](https://img.shields.io/github/license/dmartin4820/event-architect)
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ### Developer Usage
 1. Get your TicketMaster API key [here](https://developer.ticketmaster.com/)

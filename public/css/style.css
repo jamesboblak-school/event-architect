@@ -242,6 +242,8 @@ main {
     color: var(--text__logo);
 }
 
+
+
 /* ------ CONTAINERS ----- */
 .main-container {
     position: relative;
@@ -271,11 +273,7 @@ main {
     justify-content: space-around;
 }
 
-@media (max-width: 45em) {
-    .mc__auth {
-        grid-auto-flow: row;
-    }
-}
+
 
 .sc__auth {
     margin: 40px;
@@ -315,10 +313,12 @@ main {
     justify-content: center;
 }
 
+
 .sc__dashboard {
     padding: 40px;
     justify-content: end;
     justify-items: center;
+   
     
 }
 
@@ -337,7 +337,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 20px 50px;
-    height: 80vh;
+    height: auto;
     text-align: center;
 }
 
@@ -357,11 +357,28 @@ main {
 
 /* -------- SEARCH CONTAINER ------- */
 
-.mc--search {
+.mc__search {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     height: fit-content;
-    padding: 30px;
+    padding: 30px 50px;
+    text-align: center;
+    ;
+}
+
+.sc__search {
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.list,
+.list a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    text-align: left;
 }
 
 /* -------- EVENT CONTAINER -------- */
@@ -382,6 +399,7 @@ main {
     margin: 0 20px;
 }
 
+/* -------- event messages -------- */
 .message-box {
     background-color: rgb(182, 250, 255);
     border-radius: 5px;
@@ -444,6 +462,7 @@ main {
     transform: scale(105%);
     box-shadow: 0 0 10px 10px var(--shadow1),
         0px 10px 30px var(--shadow45);
+    background-color: #77faff;
     /* box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1),
         0px 10px 30px rgba(0, 0, 0, 0.45); */
 }
@@ -470,7 +489,8 @@ main {
 
     /* max-height: fit-content; */
     border: none;
-    color: var(--text__invert);
+    color: var(--text-dark);
+    font-weight: bold;
     background-color: var(--base);
     border-radius: 15px;
     opacity: .75;
@@ -513,6 +533,7 @@ main {
     color: var(--text__logo);
     font-family: feastOfFlesh;
     -webkit-text-stroke: 1px #000000;
+    margin: 60px;
 }
 
 .portrait {
@@ -520,7 +541,7 @@ main {
     width: 5.5rem;
     background-color: var(--base);
     border-radius: 50%;
-
+    margin-bottom: 30px;
 }
 
 
@@ -578,7 +599,7 @@ main {
 .edit-tag {
     position: absolute;
     top: 0;
-    left: -16px;
+    left: -20px;
     width: 100%;
     z-index: 1;
     margin: 0 1rem;
@@ -620,7 +641,6 @@ main {
 }
 
 .close-btn {
-
     cursor: pointer;
     padding: 0 10px;
     width: fit-content;
@@ -632,28 +652,12 @@ main {
     font-size: 2rem;
     position: relative;
     z-index: 1;
-    transition: .3s ease-in-out;
-}
-
-.close-btn::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 15%;
-    left: 11%;
-    width: 80%;
-    height: 80%;
-    background-color: var(--secondary);
-    border: none;
-    border-radius: 50%;
-    box-shadow: 0px 0px 5px 5px var(--shadow);
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
+    transition: .1s ease-in-out;
 }
 
 .close-btn:hover,
 .close-btn:focus {
-    color: var(--invert);
+    color: var(--text-light);
 }
 
 .close-btn:hover::before,
@@ -662,6 +666,11 @@ main {
 
 }
 
+/* .membername {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+} */
 /* -------- MODAL -------- */
 
 /* the modal (background) */
@@ -715,8 +724,7 @@ main {
 
 .circle1,
 .circle2,
-.circle3,
-.circle4 {
+.circle3 {
     position: absolute;
     border-radius: 50%;
 }
@@ -756,3 +764,26 @@ main {
     background-color: var(--secondary);
 
 } */
+
+@media screen and (max-width: 1025px) {
+    .mc__dashboard {flex-direction: column;}
+}
+
+@media screen and (max-width: 900px) {
+    .mc__auth {
+        grid-auto-flow: row;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+    }
+    .nav ul {
+        display: flex;
+        flex-direction: row;
+    }
+}

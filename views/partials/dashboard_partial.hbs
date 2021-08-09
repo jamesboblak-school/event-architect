@@ -1,66 +1,57 @@
-
-    <section class="mc__dashboard">
+<section class="mc__dashboard">
     <section class="main-container">
-    <article class="sc__dashboard profile">
-        <h3 class="username section-title">{{memberPlain.username}}</h3>
-        <img src="/images/userImg.png" alt="" class="portrait">
-        <div id="oneline">
-            <button id="followers-btn" class="contact-btn">Followers</button>
-            <button id="following-btn" class="contact-btn">Following</button>
-        </div>
-    </article>
+        <article class="sc__dashboard profile">
+            <h3 class="username section-title">{{memberPlain.username}}</h3>
+            <img src="/images/userImg.png" alt="" class="portrait">
+            <div id="oneline">
+                <button id="followers-btn" class="contact-btn">Followers</button>
+                <button id="following-btn" class="contact-btn">Following</button>
+            </div>
+        </article>
     </section>
-<section class="main-container">
-    <article class="sub-container sc__dashboard">
-        <h3 class="title section-title">My Events</h3>
-        <div class="event-collection">
-            {{#each attendingEventsPlain as |event|}}
+
+    <section class="main-container mc__dashboard">
+        <article class="sub-container sc__dashboard">
+            <h3 class="title section-title">My Events</h3>
+            <div class="event-collection">
+                {{#each createdEventsPlain as |event|}}
+                <a href="http://localhost:3001/event/{{id}}">
+                    <div class="event-card">
+                        <button class="edit-tag">Edit</button>
+                        <p class="event title">{{event.title}} </p>
+                        <p>{{description}}</p>
+                    </div>
+                </a>
+                {{/each}}
+            </div>
+        </article>
+    </section>
+</section>
+    <section class="main-container">
+        <article class="sub-container sc__dashboard">
+            <h3 class="title section-title">Attending Events</h3>
+            <div class="event-collection">
+                {{#each attendingEventsPlain as |event|}}
                 <a href="http://localhost:3001/event/{{id}}">
                     <div class="event-card">
                         <p class="title">{{event.title}}</p>
                         <p>{{description}}</p>
-                    {{!-- {{#each event.description as |info|}} --}}
-                    {{!-- <p>{{info.time}}: {{info.content}}</p>
-                    {{/each}} --}}
                     </div>
                 </a>
-            {{/each}}
-        </div>
-    </article>
-</section>
+                {{/each}}
+            </div>
+        </article>
+    </section>
 
-</section>
-<section class="main-container mc__dashboard">
-    <article class="sub-container sc__dashboard">
-        <h3 class="title section-title">Managed Events</h3>
-        <div class="event-collection">
-            {{#each createdEventsPlain as |event|}}
-                {{!-- <div id="hover"> --}}
-                    <a href="http://localhost:3001/event/{{id}}">
-                        <div class="event-card">
-                            <button class="edit-tag">Edit</button>
-                            <p class="event title">{{event.title}} </p>
-                            <p>{{description}}</p>    
-                        </div>
-                    </a>
-                {{!-- </div> --}}
-            {{/each}}
-        </div>
-    </article>
-</section>
+    <section class="modal">
+        <article class="modal-content">
+            <div id="oneline--close-modal">
+                <h2 id="modal-title" class="title">text here</h2>
+                <button class="close-btn">x</button>
+            </div>
+            <ul id="friendList">
+            </ul>
+        </article>
+    </section>
 
-<section class="modal">
-
-    <article class="modal-content">
-            <!-- <span class="close">&times;</span> -->
-        <div id="oneline--close-modal">
-            <h2 id="modal-title" class="title">text here</h2>
-            <button class="close-btn">x</button>
-        </div>
-
-        <ul id="friendList">
-        </ul>
-    </article>
-</section>
-
-<script src="/js/contacts.js"></script>
+    <script src="/js/contacts.js"></script>

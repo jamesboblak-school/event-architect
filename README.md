@@ -5,9 +5,9 @@
 [Open](https://dmartin4820.github.io/event-architect/) <strong>Event Architect</strong>:
 <code>[https://dmartin4820.github.io/event-architect/](https://dmartin4820.github.io/event-architect/)</code>
 
-![Event Architect demonstration gif](./assets/gifs/e-a_demo.gif)
+<!-- ![Event Architect demonstration gif](./assets/gifs/e-a_demo.gif) -->
 
-<!-- ![Event Architect demonstration gif](./assets/images/temp_screenshot.png) -->
+![Event Architect demonstration gif](./assets/images/temp_screenshot.png)
 
 ## Table of Contents
 

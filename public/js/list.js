@@ -92,17 +92,27 @@ function editListEl() {
 	}
 }
 
+
 function addListEl() {
 	const event_id = document.getElementById('event-title').dataset.id;
 
 	let options = {
-		valueNames: ['detail-id', 'event-id', 'content', {attr:'style', name:'list-edit-btn'}],
-		item: `<li class="list-el">
+		valueNames: [
+			'detail-id', 
+			'event-id', 
+			'content', 
+			{attr:'style', name:'list-edit-btn'},
+			{attr:'style', name:'list-remove-btn'},
+			{data: ['editDetailId', 'removeDetailId']}],
+		item: `<div id="oneline">
+						<li class="list-el">
 							<span class="content"></span>
 							<span class="detail-id" style="display: none;"></span>
 							<span class="event-id" style="display: none;"></span>
-							<button class="list-edit-btn" id="${event_id}" style>Edit</button>
-					  </li>`
+							<button class="list-edit-btn" data-editDetailId="" style>Edit</button>
+							<button class="list-remove-btn" data-removeDetailId="" style>Remove</button>
+					  </li>
+					 </div>`
 	};
 
 	
@@ -117,6 +127,7 @@ function addListEl() {
 			"detail-id": detail_id,
 			"event-id": event_id,
 			"list-edit-btn": "display: none",
+			"list-remove-btn": "display: none",
 			content: `<input type=text placeholder="Enter detail" id="add-input-id-${detail_id}"/>`
 		});
 		
@@ -135,7 +146,8 @@ function addListEl() {
 			if (content.value.trim().length !== 0) {
 				detailItem.values({
 					content: content.value.trim(),					
-					"list-edit-btn": "display: inline-block"
+					"editDetailId": `${detail_id}`,
+					"removeDetailId": `${detail_id}`
 				});
 
 				const detailInfo = {
@@ -151,6 +163,7 @@ function addListEl() {
 
 			listElSubmit.remove();
 			addBtn[0].style.display = "inline-block";
+			document.location.reload();
 		});
 	})		
 }
@@ -172,6 +185,7 @@ function deleteListEl() {
 
 			console.log(detail_id)
 			await deleteDetail(detail_id);
+			document.location.reload();
 		})
 	}
 }

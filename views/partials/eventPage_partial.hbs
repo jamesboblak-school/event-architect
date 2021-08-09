@@ -42,6 +42,16 @@
     {{!-- DONT CHANGE id="detail-list" - line 50 listjs--}}
     <article id="detail-list" class="sub-container">
             <ul class="details list">
+								<div id="oneline">
+									{{!-- <li class="list-el" id="list-el-{{id}}">{{content}}</li> --}}
+									<li class="list-el" style="display: none;">
+										<span class="content" style="display: none;"></span>
+										<span class="detail-id" style="display: none;"></span>
+										<span class="event-id" style="display: none;"></span>
+										<button class="list-edit-btn" style="display: none;"></button>
+										<button class="list-remove-btn" style="display: none;"></button>
+									</li>
+								</div>
 								{{#if (canModify loggedIn isAuthor)}}
 								{{#each details}}
                 <div id="oneline">

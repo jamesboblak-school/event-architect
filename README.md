@@ -13,7 +13,7 @@
 * [Usage](#usage)
 * [Credits](#credits)
 * [License](#license)
-* [Example case](#Example case)
+* [Example](#Example)
 
 ## Installation
 
